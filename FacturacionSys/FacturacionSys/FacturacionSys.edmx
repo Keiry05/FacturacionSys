@@ -1,0 +1,951 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FacturacionSysDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TBL_Cliente">
+          <Key>
+            <PropertyRef Name="CodCliente" />
+          </Key>
+          <Property Name="CodCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumIdentif" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estatus" Type="int" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono1" Type="varchar" MaxLength="12" />
+          <Property Name="Telefono2" Type="varchar" MaxLength="12" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_CuentasPorCobrar">
+          <Key>
+            <PropertyRef Name="CodCxC" />
+          </Key>
+          <Property Name="CodCxC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="50" />
+          <Property Name="CodPedido" Type="int" />
+          <Property Name="CodCliente" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Comentarios" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estatus" Type="int" Nullable="false" />
+          <Property Name="MontoTotal" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="MontoPagado" Type="numeric" Precision="21" Scale="2" />
+        </EntityType>
+        <EntityType Name="TBL_Factura">
+          <Key>
+            <PropertyRef Name="CodFactura" />
+          </Key>
+          <Property Name="CodFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="50" />
+          <Property Name="CodCliente" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Comentarios" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estatus" Type="int" Nullable="false" />
+          <Property Name="MontoTotal" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="MontoDescuento" Type="numeric" Precision="21" Scale="2" />
+          <Property Name="MontoDevuelto" Type="numeric" Precision="21" Scale="2" />
+        </EntityType>
+        <EntityType Name="TBL_Factura_D">
+          <Key>
+            <PropertyRef Name="CodFactura" />
+          </Key>
+          <Property Name="CodFacturaD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodFactura" Type="int" Nullable="false" />
+          <Property Name="CodProducto" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Precio" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Descuento" Type="numeric" Precision="21" Scale="2" />
+          <Property Name="Importe" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="CantidadDev" Type="numeric" Precision="21" Scale="2" />
+        </EntityType>
+        <EntityType Name="TBL_InventarioMovimiento">
+          <Key>
+            <PropertyRef Name="CodMovimiento" />
+          </Key>
+          <Property Name="CodMovimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Comentarios" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estatus" Type="int" Nullable="false" />
+          <Property Name="MontoTotal" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_InventarioMovimiento_D">
+          <Key>
+            <PropertyRef Name="CodMovimientoD" />
+          </Key>
+          <Property Name="CodMovimientoD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodMovimiento" Type="int" Nullable="false" />
+          <Property Name="CodProducto" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Costo" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Importe" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_Pedido">
+          <Key>
+            <PropertyRef Name="CodPedido" />
+          </Key>
+          <Property Name="CodPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodCliente" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="FechaCompromiso" Type="datetime" />
+          <Property Name="Comentarios" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estatus" Type="int" Nullable="false" />
+          <Property Name="MontoTotal" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="MontoDescuento" Type="numeric" Precision="21" Scale="2" />
+        </EntityType>
+        <EntityType Name="TBL_Pedido_D">
+          <Key>
+            <PropertyRef Name="CodPedidoD" />
+          </Key>
+          <Property Name="CodPedidoD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodPedido" Type="int" Nullable="false" />
+          <Property Name="CodProducto" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Precio" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Descuento" Type="numeric" Precision="21" Scale="2" />
+          <Property Name="Importe" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_Producto">
+          <Key>
+            <PropertyRef Name="CodProducto" />
+          </Key>
+          <Property Name="CodProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Referencia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Estatus" Type="int" Nullable="false" />
+          <Property Name="Precio" Type="numeric" Precision="21" Scale="2" />
+          <Property Name="Costo" Type="numeric" Precision="21" Scale="2" />
+          <Property Name="FecInclusion" Type="datetime" />
+          <Property Name="FecModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TBL_ProductoExistencia">
+          <Key>
+            <PropertyRef Name="CodProductoExistencia" />
+          </Key>
+          <Property Name="CodProductoExistencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodProducto" Type="int" />
+          <Property Name="Cantidad" Type="numeric" Precision="21" Scale="2" />
+          <Property Name="Costo" Type="numeric" Precision="21" Scale="2" />
+        </EntityType>
+        <Association Name="FK_Cxc_CodCliente">
+          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
+          <End Role="TBL_CuentasPorCobrar" Type="Self.TBL_CuentasPorCobrar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Cliente">
+              <PropertyRef Name="CodCliente" />
+            </Principal>
+            <Dependent Role="TBL_CuentasPorCobrar">
+              <PropertyRef Name="CodCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cxc_CodPedido">
+          <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="0..1" />
+          <End Role="TBL_CuentasPorCobrar" Type="Self.TBL_CuentasPorCobrar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Pedido">
+              <PropertyRef Name="CodPedido" />
+            </Principal>
+            <Dependent Role="TBL_CuentasPorCobrar">
+              <PropertyRef Name="CodPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Existencia_CodProducto">
+          <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="0..1" />
+          <End Role="TBL_ProductoExistencia" Type="Self.TBL_ProductoExistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Producto">
+              <PropertyRef Name="CodProducto" />
+            </Principal>
+            <Dependent Role="TBL_ProductoExistencia">
+              <PropertyRef Name="CodProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_CodCliente">
+          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
+          <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Cliente">
+              <PropertyRef Name="CodCliente" />
+            </Principal>
+            <Dependent Role="TBL_Factura">
+              <PropertyRef Name="CodCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaD_CodFactura">
+          <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="1" />
+          <End Role="TBL_Factura_D" Type="Self.TBL_Factura_D" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Factura">
+              <PropertyRef Name="CodFactura" />
+            </Principal>
+            <Dependent Role="TBL_Factura_D">
+              <PropertyRef Name="CodFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaD_CodProducto">
+          <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="1" />
+          <End Role="TBL_Factura_D" Type="Self.TBL_Factura_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Producto">
+              <PropertyRef Name="CodProducto" />
+            </Principal>
+            <Dependent Role="TBL_Factura_D">
+              <PropertyRef Name="CodProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientoD_CodMovimiento">
+          <End Role="TBL_InventarioMovimiento" Type="Self.TBL_InventarioMovimiento" Multiplicity="1" />
+          <End Role="TBL_InventarioMovimiento_D" Type="Self.TBL_InventarioMovimiento_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_InventarioMovimiento">
+              <PropertyRef Name="CodMovimiento" />
+            </Principal>
+            <Dependent Role="TBL_InventarioMovimiento_D">
+              <PropertyRef Name="CodMovimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientoD_CodProducto">
+          <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="1" />
+          <End Role="TBL_InventarioMovimiento_D" Type="Self.TBL_InventarioMovimiento_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Producto">
+              <PropertyRef Name="CodProducto" />
+            </Principal>
+            <Dependent Role="TBL_InventarioMovimiento_D">
+              <PropertyRef Name="CodProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_CodCliente">
+          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
+          <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Cliente">
+              <PropertyRef Name="CodCliente" />
+            </Principal>
+            <Dependent Role="TBL_Pedido">
+              <PropertyRef Name="CodCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoD_CodPedido">
+          <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="1" />
+          <End Role="TBL_Pedido_D" Type="Self.TBL_Pedido_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Pedido">
+              <PropertyRef Name="CodPedido" />
+            </Principal>
+            <Dependent Role="TBL_Pedido_D">
+              <PropertyRef Name="CodPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoD_CodProducto">
+          <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="1" />
+          <End Role="TBL_Pedido_D" Type="Self.TBL_Pedido_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Producto">
+              <PropertyRef Name="CodProducto" />
+            </Principal>
+            <Dependent Role="TBL_Pedido_D">
+              <PropertyRef Name="CodProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="FacturacionSysDBModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Cliente" EntityType="Self.TBL_Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_CuentasPorCobrar" EntityType="Self.TBL_CuentasPorCobrar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Factura" EntityType="Self.TBL_Factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Factura_D" EntityType="Self.TBL_Factura_D" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_InventarioMovimiento" EntityType="Self.TBL_InventarioMovimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_InventarioMovimiento_D" EntityType="Self.TBL_InventarioMovimiento_D" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Pedido" EntityType="Self.TBL_Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Pedido_D" EntityType="Self.TBL_Pedido_D" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Producto" EntityType="Self.TBL_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ProductoExistencia" EntityType="Self.TBL_ProductoExistencia" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cxc_CodCliente" Association="Self.FK_Cxc_CodCliente">
+            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
+            <End Role="TBL_CuentasPorCobrar" EntitySet="TBL_CuentasPorCobrar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cxc_CodPedido" Association="Self.FK_Cxc_CodPedido">
+            <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
+            <End Role="TBL_CuentasPorCobrar" EntitySet="TBL_CuentasPorCobrar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Existencia_CodProducto" Association="Self.FK_Existencia_CodProducto">
+            <End Role="TBL_Producto" EntitySet="TBL_Producto" />
+            <End Role="TBL_ProductoExistencia" EntitySet="TBL_ProductoExistencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_CodCliente" Association="Self.FK_Factura_CodCliente">
+            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
+            <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaD_CodFactura" Association="Self.FK_FacturaD_CodFactura">
+            <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+            <End Role="TBL_Factura_D" EntitySet="TBL_Factura_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaD_CodProducto" Association="Self.FK_FacturaD_CodProducto">
+            <End Role="TBL_Producto" EntitySet="TBL_Producto" />
+            <End Role="TBL_Factura_D" EntitySet="TBL_Factura_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientoD_CodMovimiento" Association="Self.FK_MovimientoD_CodMovimiento">
+            <End Role="TBL_InventarioMovimiento" EntitySet="TBL_InventarioMovimiento" />
+            <End Role="TBL_InventarioMovimiento_D" EntitySet="TBL_InventarioMovimiento_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientoD_CodProducto" Association="Self.FK_MovimientoD_CodProducto">
+            <End Role="TBL_Producto" EntitySet="TBL_Producto" />
+            <End Role="TBL_InventarioMovimiento_D" EntitySet="TBL_InventarioMovimiento_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_CodCliente" Association="Self.FK_Pedido_CodCliente">
+            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
+            <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoD_CodPedido" Association="Self.FK_PedidoD_CodPedido">
+            <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
+            <End Role="TBL_Pedido_D" EntitySet="TBL_Pedido_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoD_CodProducto" Association="Self.FK_PedidoD_CodProducto">
+            <End Role="TBL_Producto" EntitySet="TBL_Producto" />
+            <End Role="TBL_Pedido_D" EntitySet="TBL_Pedido_D" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FacturacionSysDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TBL_Cliente">
+          <Key>
+            <PropertyRef Name="CodCliente" />
+          </Key>
+          <Property Name="CodCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumIdentif" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estatus" Type="Int32" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono2" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_CuentasPorCobrar" Relationship="Self.FK_Cxc_CodCliente" FromRole="TBL_Cliente" ToRole="TBL_CuentasPorCobrar" />
+          <NavigationProperty Name="TBL_Factura" Relationship="Self.FK_Factura_CodCliente" FromRole="TBL_Cliente" ToRole="TBL_Factura" />
+          <NavigationProperty Name="TBL_Pedido" Relationship="Self.FK_Pedido_CodCliente" FromRole="TBL_Cliente" ToRole="TBL_Pedido" />
+        </EntityType>
+        <EntityType Name="TBL_CuentasPorCobrar">
+          <Key>
+            <PropertyRef Name="CodCxC" />
+          </Key>
+          <Property Name="CodCxC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodPedido" Type="Int32" />
+          <Property Name="CodCliente" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comentarios" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estatus" Type="Int32" Nullable="false" />
+          <Property Name="MontoTotal" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="MontoPagado" Type="Decimal" Precision="21" Scale="2" />
+          <NavigationProperty Name="TBL_Cliente" Relationship="Self.FK_Cxc_CodCliente" FromRole="TBL_CuentasPorCobrar" ToRole="TBL_Cliente" />
+          <NavigationProperty Name="TBL_Pedido" Relationship="Self.FK_Cxc_CodPedido" FromRole="TBL_CuentasPorCobrar" ToRole="TBL_Pedido" />
+        </EntityType>
+        <EntityType Name="TBL_Factura">
+          <Key>
+            <PropertyRef Name="CodFactura" />
+          </Key>
+          <Property Name="CodFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodCliente" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comentarios" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estatus" Type="Int32" Nullable="false" />
+          <Property Name="MontoTotal" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="MontoDescuento" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="MontoDevuelto" Type="Decimal" Precision="21" Scale="2" />
+          <NavigationProperty Name="TBL_Cliente" Relationship="Self.FK_Factura_CodCliente" FromRole="TBL_Factura" ToRole="TBL_Cliente" />
+          <NavigationProperty Name="TBL_Factura_D" Relationship="Self.FK_FacturaD_CodFactura" FromRole="TBL_Factura" ToRole="TBL_Factura_D" />
+        </EntityType>
+        <EntityType Name="TBL_Factura_D">
+          <Key>
+            <PropertyRef Name="CodFactura" />
+          </Key>
+          <Property Name="CodFacturaD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodFactura" Type="Int32" Nullable="false" />
+          <Property Name="CodProducto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Descuento" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="Importe" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="CantidadDev" Type="Decimal" Precision="21" Scale="2" />
+          <NavigationProperty Name="TBL_Factura" Relationship="Self.FK_FacturaD_CodFactura" FromRole="TBL_Factura_D" ToRole="TBL_Factura" />
+          <NavigationProperty Name="TBL_Producto" Relationship="Self.FK_FacturaD_CodProducto" FromRole="TBL_Factura_D" ToRole="TBL_Producto" />
+        </EntityType>
+        <EntityType Name="TBL_InventarioMovimiento">
+          <Key>
+            <PropertyRef Name="CodMovimiento" />
+          </Key>
+          <Property Name="CodMovimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comentarios" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estatus" Type="Int32" Nullable="false" />
+          <Property Name="MontoTotal" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <NavigationProperty Name="TBL_InventarioMovimiento_D" Relationship="Self.FK_MovimientoD_CodMovimiento" FromRole="TBL_InventarioMovimiento" ToRole="TBL_InventarioMovimiento_D" />
+        </EntityType>
+        <EntityType Name="TBL_InventarioMovimiento_D">
+          <Key>
+            <PropertyRef Name="CodMovimientoD" />
+          </Key>
+          <Property Name="CodMovimientoD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodMovimiento" Type="Int32" Nullable="false" />
+          <Property Name="CodProducto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Costo" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Importe" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <NavigationProperty Name="TBL_InventarioMovimiento" Relationship="Self.FK_MovimientoD_CodMovimiento" FromRole="TBL_InventarioMovimiento_D" ToRole="TBL_InventarioMovimiento" />
+          <NavigationProperty Name="TBL_Producto" Relationship="Self.FK_MovimientoD_CodProducto" FromRole="TBL_InventarioMovimiento_D" ToRole="TBL_Producto" />
+        </EntityType>
+        <EntityType Name="TBL_Pedido">
+          <Key>
+            <PropertyRef Name="CodPedido" />
+          </Key>
+          <Property Name="CodPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodCliente" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaCompromiso" Type="DateTime" Precision="3" />
+          <Property Name="Comentarios" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estatus" Type="Int32" Nullable="false" />
+          <Property Name="MontoTotal" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="MontoDescuento" Type="Decimal" Precision="21" Scale="2" />
+          <NavigationProperty Name="TBL_Cliente" Relationship="Self.FK_Pedido_CodCliente" FromRole="TBL_Pedido" ToRole="TBL_Cliente" />
+          <NavigationProperty Name="TBL_CuentasPorCobrar" Relationship="Self.FK_Cxc_CodPedido" FromRole="TBL_Pedido" ToRole="TBL_CuentasPorCobrar" />
+          <NavigationProperty Name="TBL_Pedido_D" Relationship="Self.FK_PedidoD_CodPedido" FromRole="TBL_Pedido" ToRole="TBL_Pedido_D" />
+        </EntityType>
+        <EntityType Name="TBL_Pedido_D">
+          <Key>
+            <PropertyRef Name="CodPedidoD" />
+          </Key>
+          <Property Name="CodPedidoD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodPedido" Type="Int32" Nullable="false" />
+          <Property Name="CodProducto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Descuento" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="Importe" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
+          <NavigationProperty Name="TBL_Pedido" Relationship="Self.FK_PedidoD_CodPedido" FromRole="TBL_Pedido_D" ToRole="TBL_Pedido" />
+          <NavigationProperty Name="TBL_Producto" Relationship="Self.FK_PedidoD_CodProducto" FromRole="TBL_Pedido_D" ToRole="TBL_Producto" />
+        </EntityType>
+        <EntityType Name="TBL_Producto">
+          <Key>
+            <PropertyRef Name="CodProducto" />
+          </Key>
+          <Property Name="CodProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Referencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estatus" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="Costo" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="FecInclusion" Type="DateTime" Precision="3" />
+          <Property Name="FecModificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TBL_Factura_D" Relationship="Self.FK_FacturaD_CodProducto" FromRole="TBL_Producto" ToRole="TBL_Factura_D" />
+          <NavigationProperty Name="TBL_InventarioMovimiento_D" Relationship="Self.FK_MovimientoD_CodProducto" FromRole="TBL_Producto" ToRole="TBL_InventarioMovimiento_D" />
+          <NavigationProperty Name="TBL_Pedido_D" Relationship="Self.FK_PedidoD_CodProducto" FromRole="TBL_Producto" ToRole="TBL_Pedido_D" />
+          <NavigationProperty Name="TBL_ProductoExistencia" Relationship="Self.FK_Existencia_CodProducto" FromRole="TBL_Producto" ToRole="TBL_ProductoExistencia" />
+        </EntityType>
+        <EntityType Name="TBL_ProductoExistencia">
+          <Key>
+            <PropertyRef Name="CodProductoExistencia" />
+          </Key>
+          <Property Name="CodProductoExistencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodProducto" Type="Int32" />
+          <Property Name="Cantidad" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="Costo" Type="Decimal" Precision="21" Scale="2" />
+          <NavigationProperty Name="TBL_Producto" Relationship="Self.FK_Existencia_CodProducto" FromRole="TBL_ProductoExistencia" ToRole="TBL_Producto" />
+        </EntityType>
+        <Association Name="FK_Cxc_CodCliente">
+          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
+          <End Role="TBL_CuentasPorCobrar" Type="Self.TBL_CuentasPorCobrar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Cliente">
+              <PropertyRef Name="CodCliente" />
+            </Principal>
+            <Dependent Role="TBL_CuentasPorCobrar">
+              <PropertyRef Name="CodCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_CodCliente">
+          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
+          <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Cliente">
+              <PropertyRef Name="CodCliente" />
+            </Principal>
+            <Dependent Role="TBL_Factura">
+              <PropertyRef Name="CodCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_CodCliente">
+          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
+          <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Cliente">
+              <PropertyRef Name="CodCliente" />
+            </Principal>
+            <Dependent Role="TBL_Pedido">
+              <PropertyRef Name="CodCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cxc_CodPedido">
+          <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="0..1" />
+          <End Role="TBL_CuentasPorCobrar" Type="Self.TBL_CuentasPorCobrar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Pedido">
+              <PropertyRef Name="CodPedido" />
+            </Principal>
+            <Dependent Role="TBL_CuentasPorCobrar">
+              <PropertyRef Name="CodPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaD_CodFactura">
+          <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="1" />
+          <End Role="TBL_Factura_D" Type="Self.TBL_Factura_D" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Factura">
+              <PropertyRef Name="CodFactura" />
+            </Principal>
+            <Dependent Role="TBL_Factura_D">
+              <PropertyRef Name="CodFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaD_CodProducto">
+          <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="1" />
+          <End Role="TBL_Factura_D" Type="Self.TBL_Factura_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Producto">
+              <PropertyRef Name="CodProducto" />
+            </Principal>
+            <Dependent Role="TBL_Factura_D">
+              <PropertyRef Name="CodProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientoD_CodMovimiento">
+          <End Role="TBL_InventarioMovimiento" Type="Self.TBL_InventarioMovimiento" Multiplicity="1" />
+          <End Role="TBL_InventarioMovimiento_D" Type="Self.TBL_InventarioMovimiento_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_InventarioMovimiento">
+              <PropertyRef Name="CodMovimiento" />
+            </Principal>
+            <Dependent Role="TBL_InventarioMovimiento_D">
+              <PropertyRef Name="CodMovimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientoD_CodProducto">
+          <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="1" />
+          <End Role="TBL_InventarioMovimiento_D" Type="Self.TBL_InventarioMovimiento_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Producto">
+              <PropertyRef Name="CodProducto" />
+            </Principal>
+            <Dependent Role="TBL_InventarioMovimiento_D">
+              <PropertyRef Name="CodProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoD_CodPedido">
+          <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="1" />
+          <End Role="TBL_Pedido_D" Type="Self.TBL_Pedido_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Pedido">
+              <PropertyRef Name="CodPedido" />
+            </Principal>
+            <Dependent Role="TBL_Pedido_D">
+              <PropertyRef Name="CodPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoD_CodProducto">
+          <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="1" />
+          <End Role="TBL_Pedido_D" Type="Self.TBL_Pedido_D" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Producto">
+              <PropertyRef Name="CodProducto" />
+            </Principal>
+            <Dependent Role="TBL_Pedido_D">
+              <PropertyRef Name="CodProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Existencia_CodProducto">
+          <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="0..1" />
+          <End Role="TBL_ProductoExistencia" Type="Self.TBL_ProductoExistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Producto">
+              <PropertyRef Name="CodProducto" />
+            </Principal>
+            <Dependent Role="TBL_ProductoExistencia">
+              <PropertyRef Name="CodProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FacturacionSysDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TBL_Cliente" EntityType="Self.TBL_Cliente" />
+          <EntitySet Name="TBL_CuentasPorCobrar" EntityType="Self.TBL_CuentasPorCobrar" />
+          <EntitySet Name="TBL_Factura" EntityType="Self.TBL_Factura" />
+          <EntitySet Name="TBL_Factura_D" EntityType="Self.TBL_Factura_D" />
+          <EntitySet Name="TBL_InventarioMovimiento" EntityType="Self.TBL_InventarioMovimiento" />
+          <EntitySet Name="TBL_InventarioMovimiento_D" EntityType="Self.TBL_InventarioMovimiento_D" />
+          <EntitySet Name="TBL_Pedido" EntityType="Self.TBL_Pedido" />
+          <EntitySet Name="TBL_Pedido_D" EntityType="Self.TBL_Pedido_D" />
+          <EntitySet Name="TBL_Producto" EntityType="Self.TBL_Producto" />
+          <EntitySet Name="TBL_ProductoExistencia" EntityType="Self.TBL_ProductoExistencia" />
+          <AssociationSet Name="FK_Cxc_CodCliente" Association="Self.FK_Cxc_CodCliente">
+            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
+            <End Role="TBL_CuentasPorCobrar" EntitySet="TBL_CuentasPorCobrar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_CodCliente" Association="Self.FK_Factura_CodCliente">
+            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
+            <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_CodCliente" Association="Self.FK_Pedido_CodCliente">
+            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
+            <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cxc_CodPedido" Association="Self.FK_Cxc_CodPedido">
+            <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
+            <End Role="TBL_CuentasPorCobrar" EntitySet="TBL_CuentasPorCobrar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaD_CodFactura" Association="Self.FK_FacturaD_CodFactura">
+            <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+            <End Role="TBL_Factura_D" EntitySet="TBL_Factura_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaD_CodProducto" Association="Self.FK_FacturaD_CodProducto">
+            <End Role="TBL_Producto" EntitySet="TBL_Producto" />
+            <End Role="TBL_Factura_D" EntitySet="TBL_Factura_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientoD_CodMovimiento" Association="Self.FK_MovimientoD_CodMovimiento">
+            <End Role="TBL_InventarioMovimiento" EntitySet="TBL_InventarioMovimiento" />
+            <End Role="TBL_InventarioMovimiento_D" EntitySet="TBL_InventarioMovimiento_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientoD_CodProducto" Association="Self.FK_MovimientoD_CodProducto">
+            <End Role="TBL_Producto" EntitySet="TBL_Producto" />
+            <End Role="TBL_InventarioMovimiento_D" EntitySet="TBL_InventarioMovimiento_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoD_CodPedido" Association="Self.FK_PedidoD_CodPedido">
+            <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
+            <End Role="TBL_Pedido_D" EntitySet="TBL_Pedido_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoD_CodProducto" Association="Self.FK_PedidoD_CodProducto">
+            <End Role="TBL_Producto" EntitySet="TBL_Producto" />
+            <End Role="TBL_Pedido_D" EntitySet="TBL_Pedido_D" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Existencia_CodProducto" Association="Self.FK_Existencia_CodProducto">
+            <End Role="TBL_Producto" EntitySet="TBL_Producto" />
+            <End Role="TBL_ProductoExistencia" EntitySet="TBL_ProductoExistencia" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(FacturacionSysDBModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(FacturacionSysDBModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FacturacionSysDBModelStoreContainer" CdmEntityContainer="FacturacionSysDBEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Cliente">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_Cliente">
+              <MappingFragment StoreEntitySet="TBL_Cliente">
+                <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+                <ScalarProperty Name="NumIdentif" ColumnName="NumIdentif" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+                <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CuentasPorCobrar">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_CuentasPorCobrar">
+              <MappingFragment StoreEntitySet="TBL_CuentasPorCobrar">
+                <ScalarProperty Name="CodCxC" ColumnName="CodCxC" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="CodPedido" ColumnName="CodPedido" />
+                <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="MontoPagado" ColumnName="MontoPagado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Factura">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_Factura">
+              <MappingFragment StoreEntitySet="TBL_Factura">
+                <ScalarProperty Name="CodFactura" ColumnName="CodFactura" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="MontoDescuento" ColumnName="MontoDescuento" />
+                <ScalarProperty Name="MontoDevuelto" ColumnName="MontoDevuelto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Factura_D">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_Factura_D">
+              <MappingFragment StoreEntitySet="TBL_Factura_D">
+                <ScalarProperty Name="CodFacturaD" ColumnName="CodFacturaD" />
+                <ScalarProperty Name="CodFactura" ColumnName="CodFactura" />
+                <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="CantidadDev" ColumnName="CantidadDev" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_InventarioMovimiento">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_InventarioMovimiento">
+              <MappingFragment StoreEntitySet="TBL_InventarioMovimiento">
+                <ScalarProperty Name="CodMovimiento" ColumnName="CodMovimiento" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_InventarioMovimiento_D">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_InventarioMovimiento_D">
+              <MappingFragment StoreEntitySet="TBL_InventarioMovimiento_D">
+                <ScalarProperty Name="CodMovimientoD" ColumnName="CodMovimientoD" />
+                <ScalarProperty Name="CodMovimiento" ColumnName="CodMovimiento" />
+                <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Pedido">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_Pedido">
+              <MappingFragment StoreEntitySet="TBL_Pedido">
+                <ScalarProperty Name="CodPedido" ColumnName="CodPedido" />
+                <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="FechaCompromiso" ColumnName="FechaCompromiso" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="MontoDescuento" ColumnName="MontoDescuento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Pedido_D">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_Pedido_D">
+              <MappingFragment StoreEntitySet="TBL_Pedido_D">
+                <ScalarProperty Name="CodPedidoD" ColumnName="CodPedidoD" />
+                <ScalarProperty Name="CodPedido" ColumnName="CodPedido" />
+                <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Producto">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_Producto">
+              <MappingFragment StoreEntitySet="TBL_Producto">
+                <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="FecInclusion" ColumnName="FecInclusion" />
+                <ScalarProperty Name="FecModificacion" ColumnName="FecModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ProductoExistencia">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_ProductoExistencia">
+              <MappingFragment StoreEntitySet="TBL_ProductoExistencia">
+                <ScalarProperty Name="CodProductoExistencia" ColumnName="CodProductoExistencia" />
+                <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="FacturacionSysDBModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="FacturacionSysDBModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="FacturacionSysDBModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="FacturacionSysDBModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FacturacionSysDBModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="FacturacionSysDBModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FacturacionSysDBModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="FacturacionSysDBModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="FacturacionSysDBModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -32,8 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,14 +54,98 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FacturacionSys.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturacionSys.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacturacionSys.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacturacionSys.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturacionSys.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\frmOpcionesFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Facturacion\frmOpcionesFacturacion.Designer.cs">
+      <DependentUpon>frmOpcionesFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\frmOpcionesInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmOpcionesInventario.Designer.cs">
+      <DependentUpon>frmOpcionesInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\frmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_Cliente.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_CuentasPorCobrar.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_Factura.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_Factura_D.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_InventarioMovimiento.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_InventarioMovimiento_D.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_Pedido.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_Pedido_D.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_Producto.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_ProductoExistencia.cs">
+      <DependentUpon>FacturacionSys.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Facturacion\frmOpcionesFacturacion.resx">
+      <DependentUpon>frmOpcionesFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmOpcionesInventario.resx">
+      <DependentUpon>frmOpcionesInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,7 +154,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="FacturacionSys.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FacturacionSys.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FacturacionSys.edmx.diagram">
+      <DependentUpon>FacturacionSys.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,6 +176,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_key-07 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FacturacionSys.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FacturacionSys.edmx</DependentUpon>
+      <LastGenOutput>FacturacionSys.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FacturacionSys.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FacturacionSys.edmx</DependentUpon>
+      <LastGenOutput>FacturacionSys.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

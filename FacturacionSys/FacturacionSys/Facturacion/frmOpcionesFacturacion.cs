@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FacturacionSys
+namespace FacturacionSys.Facturacion
 {
-    public partial class Form1 : Form
+    public partial class frmOpcionesFacturacion : Form
     {
-        public Form1()
+        public frmOpcionesFacturacion()
         {
             InitializeComponent();
+        }
+
+        private void OpcionesFacturacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
