@@ -21,5 +21,22 @@ namespace FacturacionSys.Inventario
         {
 
         }
+
+        private void suplidoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var suplidor = new Suplidores();
+            suplidor.ShowDialog();
+        }
+
+        private void realizarEntradaAlInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var EntradaInv = new Entrada_Inventario();
+            EntradaInv.ShowDialog();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
     }
 }

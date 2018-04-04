@@ -21,5 +21,41 @@ namespace FacturacionSys.Facturacion
         {
 
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             var cliente = new Cliente();
+            cliente.ShowDialog();
+        }
+
+        private void realizarFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var factura = new Realizar_Factura();
+            factura.ShowDialog();
+        }
+
+        private void realizarDevoluciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var devo = new FormDevolucion();
+            devo.ShowDialog();
+        }
+
+        private void realizarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var pedi = new Realizar_Pedido();
+            pedi.ShowDialog();
+        }
+
+        private void reportesAsociadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var pendi = new Pedidos_pendientes();
+            pendi.ShowDialog();
+        }
+
+        private void pedidosFacturadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var factu = new PedidosFacturados();
+            factu.ShowDialog();
+        }
     }
 }

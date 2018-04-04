@@ -69,17 +69,107 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FacturacionSys.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Cliente.Designer.cs">
+      <DependentUpon>Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\FormDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\FormDevolucion.Designer.cs">
+      <DependentUpon>FormDevolucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\FormNotasCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\FormNotasCredito.Designer.cs">
+      <DependentUpon>FormNotasCredito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\frmOpcionesFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturacion\frmOpcionesFacturacion.Designer.cs">
       <DependentUpon>frmOpcionesFacturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\NuevoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\NuevoCliente.Designer.cs">
+      <DependentUpon>NuevoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Nuevo_Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Nuevo_Producto.Designer.cs">
+      <DependentUpon>Nuevo_Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\PedidosFacturados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\PedidosFacturados.Designer.cs">
+      <DependentUpon>PedidosFacturados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Pedidos_pendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Pedidos_pendientes.Designer.cs">
+      <DependentUpon>Pedidos_pendientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Producto.Designer.cs">
+      <DependentUpon>Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Realizar_Devolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Realizar_Devolucion.Designer.cs">
+      <DependentUpon>Realizar_Devolucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Realizar_Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Realizar_Factura.Designer.cs">
+      <DependentUpon>Realizar_Factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Realizar_Pedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Realizar_Pedido.Designer.cs">
+      <DependentUpon>Realizar_Pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Agregar_Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Agregar_Producto.Designer.cs">
+      <DependentUpon>Agregar_Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Entrada Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Entrada Inventario.Designer.cs">
+      <DependentUpon>Entrada Inventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\frmOpcionesInventario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventario\frmOpcionesInventario.Designer.cs">
       <DependentUpon>frmOpcionesInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\NuevoSuplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\NuevoSuplidor.Designer.cs">
+      <DependentUpon>NuevoSuplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Suplidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Suplidores.Designer.cs">
+      <DependentUpon>Suplidores.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\frmInicio.cs">
       <SubType>Form</SubType>
@@ -134,11 +224,56 @@
     <Compile Include="TBL_ProductoExistencia.cs">
       <DependentUpon>FacturacionSys.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Facturacion\Cliente.resx">
+      <DependentUpon>Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\FormDevolucion.resx">
+      <DependentUpon>FormDevolucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\FormNotasCredito.resx">
+      <DependentUpon>FormNotasCredito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmOpcionesFacturacion.resx">
       <DependentUpon>frmOpcionesFacturacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\NuevoCliente.resx">
+      <DependentUpon>NuevoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Nuevo_Producto.resx">
+      <DependentUpon>Nuevo_Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\PedidosFacturados.resx">
+      <DependentUpon>PedidosFacturados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Pedidos_pendientes.resx">
+      <DependentUpon>Pedidos_pendientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Producto.resx">
+      <DependentUpon>Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Realizar_Devolucion.resx">
+      <DependentUpon>Realizar_Devolucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Realizar_Factura.resx">
+      <DependentUpon>Realizar_Factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Realizar_Pedido.resx">
+      <DependentUpon>Realizar_Pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Agregar_Producto.resx">
+      <DependentUpon>Agregar_Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Entrada Inventario.resx">
+      <DependentUpon>Entrada Inventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\frmOpcionesInventario.resx">
       <DependentUpon>frmOpcionesInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\NuevoSuplidor.resx">
+      <DependentUpon>NuevoSuplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Suplidores.resx">
+      <DependentUpon>Suplidores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
