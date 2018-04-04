@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacturacionSys.Facturacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +37,43 @@ namespace FacturacionSys.Inventario
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+            var pro = new Producto();
+            pro.ShowDialog();
+        }
+
+        private void ordenDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var O = new OrdenDeCompra();
+            O.ShowDialog();
+        }
+
+        private void existenciaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var Exi = new ExistenciaDeProducto();
+            Exi.ShowDialog();
+        }
+
+        private void entradasDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var entra = new EntradaDeProducto();
+            entra.ShowDialog();
+        }
+
+        private void salidasDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var sali = new SalidaDeProducto();
+            sali.ShowDialog();
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void realizarConduceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var condu = new Conduce();
+            condu.ShowDialog();
         }
     }
 }

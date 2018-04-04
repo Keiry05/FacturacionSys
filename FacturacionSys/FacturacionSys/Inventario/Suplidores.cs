@@ -25,5 +25,10 @@ namespace FacturacionSys.Inventario
             Nsuplidor.ShowDialog();
 
         }
+
+        private void Suplidores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

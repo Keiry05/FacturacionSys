@@ -153,6 +153,7 @@
             this.Controls.Add(this.btnCrearSuplidor);
             this.Name = "Suplidores";
             this.Text = "Suplidores";
+            this.Load += new System.EventHandler(this.Suplidores_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

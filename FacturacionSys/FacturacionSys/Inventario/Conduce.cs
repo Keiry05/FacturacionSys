@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace FacturacionSys.Inventario
 {
-    public partial class Agregar_Producto : Form
+    public partial class Conduce : Form
     {
-        public Agregar_Producto()
+        public Conduce()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            var Fc = new FacturarConduce();
+            Fc.ShowDialog();
         }
     }
 }

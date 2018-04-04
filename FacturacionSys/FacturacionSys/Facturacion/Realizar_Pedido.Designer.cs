@@ -30,16 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Realizar_Pedido));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -48,21 +47,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.textBox8);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.listBox2);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label11);
@@ -78,6 +78,13 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Del Pedido";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(221, 165);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(254, 26);
+            this.dateTimePicker1.TabIndex = 34;
             // 
             // textBox8
             // 
@@ -136,13 +143,6 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Notas";
             // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(221, 197);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(339, 26);
-            this.textBox6.TabIndex = 23;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -168,13 +168,6 @@
             this.button1.Text = "Guardar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(221, 164);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(339, 26);
-            this.textBox4.TabIndex = 15;
             // 
             // textBox3
             // 
@@ -246,6 +239,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código Cliente";
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(221, 197);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(254, 26);
+            this.dateTimePicker2.TabIndex = 35;
+            // 
             // Realizar_Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,10 +264,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
@@ -282,5 +280,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace FacturacionSys.Inventario
 {
-    public partial class Entrada_Inventario : Form
+    public partial class FacturarConduce : Form
     {
-        public Entrada_Inventario()
+        public FacturarConduce()
         {
             InitializeComponent();
         }
 
-        private void btnCrearSuplidor_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void FacturarConduce_Load(object sender, EventArgs e)
         {
 
         }
