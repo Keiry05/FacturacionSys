@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="FacturacionSysDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TBL_Cliente">
           <Key>
             <PropertyRef Name="CodCliente" />
@@ -138,6 +128,19 @@
           <Property Name="CodProducto" Type="int" />
           <Property Name="Cantidad" Type="numeric" Precision="21" Scale="2" />
           <Property Name="Costo" Type="numeric" Precision="21" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="45" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="45" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="Estatus" Type="int" />
+          <Property Name="IndEsAdministrador" Type="bit" />
         </EntityType>
         <Association Name="FK_Cxc_CodCliente">
           <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
@@ -303,7 +306,6 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="FacturacionSysDBModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Cliente" EntityType="Self.TBL_Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_CuentasPorCobrar" EntityType="Self.TBL_CuentasPorCobrar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Factura" EntityType="Self.TBL_Factura" Schema="dbo" store:Type="Tables" />
@@ -314,6 +316,16 @@
           <EntitySet Name="TBL_Pedido_D" EntityType="Self.TBL_Pedido_D" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Producto" EntityType="Self.TBL_Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_ProductoExistencia" EntityType="Self.TBL_ProductoExistencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Usuarios].[ID] AS [ID], 
+    [Usuarios].[Usuario] AS [Usuario], 
+    [Usuarios].[Contrasena] AS [Contrasena], 
+    [Usuarios].[Descripcion] AS [Descripcion], 
+    [Usuarios].[Estatus] AS [Estatus], 
+    [Usuarios].[IndEsAdministrador] AS [IndEsAdministrador]
+    FROM [dbo].[Usuarios] AS [Usuarios]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Cxc_CodCliente" Association="Self.FK_Cxc_CodCliente">
             <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
             <End Role="TBL_CuentasPorCobrar" EntitySet="TBL_CuentasPorCobrar" />
@@ -364,16 +376,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FacturacionSysDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TBL_Cliente">
           <Key>
             <PropertyRef Name="CodCliente" />
@@ -520,6 +522,17 @@
           <Property Name="Costo" Type="Decimal" Precision="21" Scale="2" />
           <NavigationProperty Name="TBL_Producto" Relationship="Self.FK_Existencia_CodProducto" FromRole="TBL_ProductoExistencia" ToRole="TBL_Producto" />
         </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Estatus" Type="Int32" />
+          <Property Name="IndEsAdministrador" Type="Boolean" />
+        </EntityType>
         <Association Name="FK_Cxc_CodCliente">
           <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
           <End Role="TBL_CuentasPorCobrar" Type="Self.TBL_CuentasPorCobrar" Multiplicity="*" />
@@ -653,7 +666,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="FacturacionSysDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TBL_Cliente" EntityType="Self.TBL_Cliente" />
           <EntitySet Name="TBL_CuentasPorCobrar" EntityType="Self.TBL_CuentasPorCobrar" />
           <EntitySet Name="TBL_Factura" EntityType="Self.TBL_Factura" />
@@ -664,6 +676,7 @@
           <EntitySet Name="TBL_Pedido_D" EntityType="Self.TBL_Pedido_D" />
           <EntitySet Name="TBL_Producto" EntityType="Self.TBL_Producto" />
           <EntitySet Name="TBL_ProductoExistencia" EntityType="Self.TBL_ProductoExistencia" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
           <AssociationSet Name="FK_Cxc_CodCliente" Association="Self.FK_Cxc_CodCliente">
             <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
             <End Role="TBL_CuentasPorCobrar" EntitySet="TBL_CuentasPorCobrar" />
@@ -756,17 +769,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="FacturacionSysDBModelStoreContainer" CdmEntityContainer="FacturacionSysDBEntities">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="FacturacionSysDBModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TBL_Cliente">
             <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_Cliente">
               <MappingFragment StoreEntitySet="TBL_Cliente">
@@ -898,6 +900,18 @@
                 <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="Costo" ColumnName="Costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="IndEsAdministrador" ColumnName="IndEsAdministrador" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

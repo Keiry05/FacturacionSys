@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FacturacionSys
+namespace FacturacionSysDLL.DATA
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Usuarios
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int ID { get; set; }
+        public string Usuario { get; set; }
+        public string Contrasena { get; set; }
+        public string Descripcion { get; set; }
+        public Nullable<int> Estatus { get; set; }
+        public Nullable<bool> IndEsAdministrador { get; set; }
     }
 }

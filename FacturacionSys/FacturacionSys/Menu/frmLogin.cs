@@ -1,5 +1,7 @@
-﻿using FacturacionSys.Inventario;
+﻿
+using FacturacionSys.Inventario;
 using FacturacionSys.Menu;
+using FacturacionSysDLL.BUSINESS_LAWYER.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace FacturacionSys
 {
@@ -26,8 +29,24 @@ namespace FacturacionSys
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            var inicio = new frmInicio();
-            inicio.ShowDialog();
+            try
+            {
+
+            var login = new LoginC();
+            if (login.Logguear(txtUsuario.Text, txtContrasena.Text)) {
+                this.Hide();
+                var inicio = new frmInicio();
+                inicio.ShowDialog();
+            }
+            else
+            {
+                throw new Exception("Usuario o contraseña incorrecta");
+            }
+        }
+          catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

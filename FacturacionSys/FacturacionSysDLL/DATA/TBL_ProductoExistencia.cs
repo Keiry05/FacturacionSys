@@ -7,13 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FacturacionSys
+namespace FacturacionSysDLL.DATA
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class TBL_ProductoExistencia
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int CodProductoExistencia { get; set; }
+        public Nullable<int> CodProducto { get; set; }
+        public Nullable<decimal> Cantidad { get; set; }
+        public Nullable<decimal> Costo { get; set; }
+    
+        public virtual TBL_Producto TBL_Producto { get; set; }
     }
 }

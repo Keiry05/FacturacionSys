@@ -7,33 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FacturacionSys
+namespace FacturacionSysDLL.DATA
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_Pedido
+    public partial class TBL_InventarioMovimiento
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_Pedido()
+        public TBL_InventarioMovimiento()
         {
-            this.TBL_CuentasPorCobrar = new HashSet<TBL_CuentasPorCobrar>();
-            this.TBL_Pedido_D = new HashSet<TBL_Pedido_D>();
+            this.TBL_InventarioMovimiento_D = new HashSet<TBL_InventarioMovimiento_D>();
         }
     
-        public int CodPedido { get; set; }
-        public int CodCliente { get; set; }
+        public int CodMovimiento { get; set; }
         public System.DateTime Fecha { get; set; }
-        public Nullable<System.DateTime> FechaCompromiso { get; set; }
         public string Comentarios { get; set; }
         public int Estatus { get; set; }
         public decimal MontoTotal { get; set; }
-        public Nullable<decimal> MontoDescuento { get; set; }
     
-        public virtual TBL_Cliente TBL_Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_CuentasPorCobrar> TBL_CuentasPorCobrar { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Pedido_D> TBL_Pedido_D { get; set; }
+        public virtual ICollection<TBL_InventarioMovimiento_D> TBL_InventarioMovimiento_D { get; set; }
     }
 }
