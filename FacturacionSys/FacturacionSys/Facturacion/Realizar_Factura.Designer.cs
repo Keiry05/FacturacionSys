@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Realizar_Factura));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox5 = new System.Windows.Forms.ListBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -52,14 +53,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBox5 = new System.Windows.Forms.ListBox();
-            this.listBox6 = new System.Windows.Forms.ListBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listBox6);
+            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.listBox5);
             this.groupBox1.Controls.Add(this.listBox4);
             this.groupBox1.Controls.Add(this.label7);
@@ -84,13 +84,26 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(9, 25);
+            this.groupBox1.Location = new System.Drawing.Point(9, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(646, 418);
+            this.groupBox1.Size = new System.Drawing.Size(646, 431);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos De Factura";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // listBox5
+            // 
+            this.listBox5.FormattingEnabled = true;
+            this.listBox5.ItemHeight = 19;
+            this.listBox5.Items.AddRange(new object[] {
+            "",
+            "Crédito",
+            "Contado"});
+            this.listBox5.Location = new System.Drawing.Point(211, 74);
+            this.listBox5.Name = "listBox5";
+            this.listBox5.Size = new System.Drawing.Size(108, 23);
+            this.listBox5.TabIndex = 46;
             // 
             // listBox4
             // 
@@ -167,9 +180,9 @@
             this.label9.ForeColor = System.Drawing.Color.Teal;
             this.label9.Location = new System.Drawing.Point(9, 140);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 19);
+            this.label9.Size = new System.Drawing.Size(70, 19);
             this.label9.TabIndex = 38;
-            this.label9.Text = "Código de producto";
+            this.label9.Text = "Productos";
             // 
             // textBox2
             // 
@@ -311,31 +324,12 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Número de Orden";
             // 
-            // listBox5
+            // textBox3
             // 
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.ItemHeight = 19;
-            this.listBox5.Items.AddRange(new object[] {
-            "",
-            "Crédito",
-            "Contado"});
-            this.listBox5.Location = new System.Drawing.Point(211, 74);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(108, 23);
-            this.listBox5.TabIndex = 46;
-            // 
-            // listBox6
-            // 
-            this.listBox6.FormattingEnabled = true;
-            this.listBox6.ItemHeight = 19;
-            this.listBox6.Items.AddRange(new object[] {
-            "",
-            "Crédito",
-            "Contado"});
-            this.listBox6.Location = new System.Drawing.Point(211, 135);
-            this.listBox6.Name = "listBox6";
-            this.listBox6.Size = new System.Drawing.Size(108, 23);
-            this.listBox6.TabIndex = 47;
+            this.textBox3.Location = new System.Drawing.Point(211, 133);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(340, 26);
+            this.textBox3.TabIndex = 47;
             // 
             // Realizar_Factura
             // 
@@ -377,7 +371,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox listBox6;
         private System.Windows.Forms.ListBox listBox5;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
