@@ -37,7 +37,7 @@ namespace FacturacionSys.Inventario
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var pro = new Producto();
+            var pro = new BuscarProductos();
             pro.ShowDialog();
         }
 

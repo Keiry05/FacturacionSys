@@ -28,5 +28,12 @@ namespace FacturacionSys.Facturacion
             var Product = new ProductoC();
             Product.BuscarListadoProductos(txtReferenciaB.Text, txtDescripcionB.Text);
         }
+
+        private void btnNuevoProducto_Click(object sender, EventArgs e)
+        {
+            var CreaProdi = new Nuevo_Producto();
+            CreaProdi.ShowDialog();
+              
+        }
     }
 }

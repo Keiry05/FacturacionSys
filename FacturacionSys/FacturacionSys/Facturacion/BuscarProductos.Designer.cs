@@ -40,6 +40,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnNuevoProducto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnNuevoProducto);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.label4);
@@ -103,9 +105,9 @@
             this.button3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Transparent;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(524, 27);
+            this.button3.Location = new System.Drawing.Point(517, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 51);
+            this.button3.Size = new System.Drawing.Size(94, 42);
             this.button3.TabIndex = 3;
             this.button3.Text = "Buscar";
             this.button3.UseVisualStyleBackColor = false;
@@ -142,6 +144,23 @@
             this.textBox1.Size = new System.Drawing.Size(254, 26);
             this.textBox1.TabIndex = 5;
             // 
+            // btnNuevoProducto
+            // 
+            this.btnNuevoProducto.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnNuevoProducto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.BackgroundImage")));
+            this.btnNuevoProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNuevoProducto.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoProducto.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevoProducto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnNuevoProducto.Location = new System.Drawing.Point(517, 60);
+            this.btnNuevoProducto.Name = "btnNuevoProducto";
+            this.btnNuevoProducto.Size = new System.Drawing.Size(94, 43);
+            this.btnNuevoProducto.TabIndex = 7;
+            this.btnNuevoProducto.Text = "Nuevo Producto";
+            this.btnNuevoProducto.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnNuevoProducto.UseVisualStyleBackColor = false;
+            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
+            // 
             // BuscarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,5 +190,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnNuevoProducto;
     }
 }
