@@ -114,12 +114,6 @@
     <Compile Include="Facturacion\Producto.Designer.cs">
       <DependentUpon>Producto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\Realizar_Devolucion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\Realizar_Devolucion.Designer.cs">
-      <DependentUpon>Realizar_Devolucion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Facturacion\Realizar_Factura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,9 +235,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Producto.resx">
       <DependentUpon>Producto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\Realizar_Devolucion.resx">
-      <DependentUpon>Realizar_Devolucion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Realizar_Factura.resx">
       <DependentUpon>Realizar_Factura.cs</DependentUpon>

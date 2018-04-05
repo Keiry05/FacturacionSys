@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOpcionesFacturacion));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -42,6 +40,9 @@
             this.reportesAsociadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosFacturadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.realizarNotaDeCrèditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,27 +60,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 184);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(227, 352);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 67);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Facturación";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 292);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(179, 146);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // toolStripDropDownButton1
             // 
@@ -106,7 +86,8 @@
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.realizarPedidoToolStripMenuItem,
             this.realizarFacturaToolStripMenuItem,
-            this.realizarDevoluciónToolStripMenuItem});
+            this.realizarDevoluciónToolStripMenuItem,
+            this.realizarNotaDeCrèditoToolStripMenuItem});
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -117,14 +98,14 @@
             // realizarPedidoToolStripMenuItem
             // 
             this.realizarPedidoToolStripMenuItem.Name = "realizarPedidoToolStripMenuItem";
-            this.realizarPedidoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.realizarPedidoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.realizarPedidoToolStripMenuItem.Text = "Realizar pedido";
             this.realizarPedidoToolStripMenuItem.Click += new System.EventHandler(this.realizarPedidoToolStripMenuItem_Click);
             // 
             // realizarFacturaToolStripMenuItem
             // 
             this.realizarFacturaToolStripMenuItem.Name = "realizarFacturaToolStripMenuItem";
-            this.realizarFacturaToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.realizarFacturaToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.realizarFacturaToolStripMenuItem.Text = "Realizar factura";
             this.realizarFacturaToolStripMenuItem.Click += new System.EventHandler(this.realizarFacturaToolStripMenuItem_Click);
             // 
@@ -132,7 +113,7 @@
             // 
             this.realizarDevoluciónToolStripMenuItem.CheckOnClick = true;
             this.realizarDevoluciónToolStripMenuItem.Name = "realizarDevoluciónToolStripMenuItem";
-            this.realizarDevoluciónToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.realizarDevoluciónToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.realizarDevoluciónToolStripMenuItem.Text = "Realizar devolución";
             this.realizarDevoluciónToolStripMenuItem.Click += new System.EventHandler(this.realizarDevoluciónToolStripMenuItem_Click);
             // 
@@ -172,6 +153,34 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 181);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Teal;
+            this.label1.Location = new System.Drawing.Point(227, 352);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 67);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Facturación";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 292);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(179, 146);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // realizarNotaDeCrèditoToolStripMenuItem
+            // 
+            this.realizarNotaDeCrèditoToolStripMenuItem.Name = "realizarNotaDeCrèditoToolStripMenuItem";
+            this.realizarNotaDeCrèditoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.realizarNotaDeCrèditoToolStripMenuItem.Text = "Realizar Nota de Crèdito";
+            this.realizarNotaDeCrèditoToolStripMenuItem.Click += new System.EventHandler(this.realizarNotaDeCrèditoToolStripMenuItem_Click);
+            // 
             // frmOpcionesFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,5 +216,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem pedidosFacturadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem realizarNotaDeCrèditoToolStripMenuItem;
     }
 }

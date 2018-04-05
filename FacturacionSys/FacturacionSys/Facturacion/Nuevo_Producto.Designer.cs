@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo_Producto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,15 @@
             this.groupBox1.Text = "Datos Del Producto";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 19;
+            this.listBox1.Location = new System.Drawing.Point(221, 199);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(86, 23);
+            this.listBox1.TabIndex = 24;
+            // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
@@ -95,7 +104,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Teal;
-            this.label8.Location = new System.Drawing.Point(19, 237);
+            this.label8.Location = new System.Drawing.Point(19, 232);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 19);
             this.label8.TabIndex = 21;
@@ -220,15 +229,6 @@
             this.label1.Size = new System.Drawing.Size(141, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descripción Producto";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(221, 199);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(86, 23);
-            this.listBox1.TabIndex = 24;
             // 
             // Nuevo_Producto
             // 

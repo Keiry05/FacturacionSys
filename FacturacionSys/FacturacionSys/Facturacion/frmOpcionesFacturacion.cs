@@ -36,8 +36,8 @@ namespace FacturacionSys.Facturacion
 
         private void realizarDevoluciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var devo = new FormDevolucion();
-            devo.ShowDialog();
+            var devolucion = new FormDevolucion();
+            devolucion.ShowDialog();
         }
 
         private void realizarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,5 +57,12 @@ namespace FacturacionSys.Facturacion
             var factu = new PedidosFacturados();
             factu.ShowDialog();
         }
+
+        private void realizarNotaDeCrèditoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var credito = new FormNotasCredito();
+            credito.ShowDialog();
+        }
+        
     }
 }
