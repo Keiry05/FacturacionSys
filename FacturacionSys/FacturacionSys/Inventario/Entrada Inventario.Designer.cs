@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entrada_Inventario));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -38,9 +40,20 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.nudPrecio = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCodigoD = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,25 +64,12 @@
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.nudPrecio = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtCodigoD = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -106,6 +106,21 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Generales";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(555, 60);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(232, 26);
+            this.dateTimePicker2.TabIndex = 35;
+            // 
+            // domainUpDown1
+            // 
+            this.domainUpDown1.Location = new System.Drawing.Point(149, 24);
+            this.domainUpDown1.Name = "domainUpDown1";
+            this.domainUpDown1.Size = new System.Drawing.Size(233, 26);
+            this.domainUpDown1.TabIndex = 34;
+            this.domainUpDown1.Text = "domainUpDown1";
             // 
             // label4
             // 
@@ -171,21 +186,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Seleccione Suplidor";
             // 
-            // domainUpDown1
-            // 
-            this.domainUpDown1.Location = new System.Drawing.Point(149, 24);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(233, 26);
-            this.domainUpDown1.TabIndex = 34;
-            this.domainUpDown1.Text = "domainUpDown1";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(555, 60);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(232, 26);
-            this.dateTimePicker2.TabIndex = 35;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.numericUpDown1);
@@ -210,68 +210,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Registro";
             // 
-            // dataGridView2
+            // numericUpDown1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Descripcion,
-            this.Cantidad,
-            this.Precio,
-            this.ITBIS,
-            this.Descuento,
-            this.Importe,
-            this.Edit,
-            this.Delete});
-            this.dataGridView2.Location = new System.Drawing.Point(42, 148);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(649, 150);
-            this.dataGridView2.TabIndex = 41;
+            this.numericUpDown1.Location = new System.Drawing.Point(505, 90);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(100, 26);
+            this.numericUpDown1.TabIndex = 58;
             // 
-            // Codigo
+            // label7
             // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(440, 99);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 19);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "Importe";
             // 
-            // Descripcion
+            // label6
             // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(75, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 19);
+            this.label6.TabIndex = 56;
+            this.label6.Text = "Descripción";
             // 
-            // Cantidad
+            // textBox1
             // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // ITBIS
-            // 
-            this.ITBIS.HeaderText = "ITBIS";
-            this.ITBIS.Name = "ITBIS";
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.Name = "Descuento";
-            // 
-            // Importe
-            // 
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
+            this.textBox1.Location = new System.Drawing.Point(161, 57);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(335, 26);
+            this.textBox1.TabIndex = 55;
             // 
             // numericUpDown2
             // 
@@ -346,37 +315,69 @@
             this.txtCodigoD.Size = new System.Drawing.Size(100, 26);
             this.txtCodigoD.TabIndex = 42;
             // 
-            // textBox1
+            // dataGridView2
             // 
-            this.textBox1.Location = new System.Drawing.Point(161, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(335, 26);
-            this.textBox1.TabIndex = 55;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Descripcion,
+            this.Cantidad,
+            this.Precio,
+            this.ITBIS,
+            this.Descuento,
+            this.Importe,
+            this.Edit,
+            this.Delete});
+            this.dataGridView2.Location = new System.Drawing.Point(42, 148);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(649, 150);
+            this.dataGridView2.TabIndex = 41;
             // 
-            // label6
+            // Codigo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(75, 60);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 19);
-            this.label6.TabIndex = 56;
-            this.label6.Text = "Descripción";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
             // 
-            // label7
+            // Descripcion
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(440, 99);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 19);
-            this.label7.TabIndex = 57;
-            this.label7.Text = "Importe";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
             // 
-            // numericUpDown1
+            // Cantidad
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(505, 90);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 26);
-            this.numericUpDown1.TabIndex = 58;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // ITBIS
+            // 
+            this.ITBIS.HeaderText = "ITBIS";
+            this.ITBIS.Name = "ITBIS";
+            // 
+            // Descuento
+            // 
+            this.Descuento.HeaderText = "Descuento";
+            this.Descuento.Name = "Descuento";
+            // 
+            // Importe
+            // 
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
             // 
             // Entrada_Inventario
             // 
@@ -393,10 +394,10 @@
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }

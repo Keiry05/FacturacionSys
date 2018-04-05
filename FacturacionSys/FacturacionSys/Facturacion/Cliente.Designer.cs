@@ -76,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(272, 74);
+            this.label2.Location = new System.Drawing.Point(15, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 19);
             this.label2.TabIndex = 3;
@@ -85,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 70);
+            this.label1.Location = new System.Drawing.Point(278, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 19);
             this.label1.TabIndex = 2;
@@ -114,7 +114,7 @@
             this.groupBox2.Size = new System.Drawing.Size(739, 261);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Clientes";
+            this.groupBox2.Text = "Datos de cliente";
             // 
             // dataGridView1
             // 
@@ -124,6 +124,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(703, 233);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnCrearCliente
             // 

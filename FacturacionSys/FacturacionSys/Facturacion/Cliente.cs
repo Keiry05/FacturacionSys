@@ -22,5 +22,10 @@ namespace FacturacionSys.Facturacion
             var Ncliente = new NuevoCliente();
             Ncliente.ShowDialog();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
