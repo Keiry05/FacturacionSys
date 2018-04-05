@@ -7,22 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FacturacionSys
+namespace FacturacionSysDLL.DATA
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_Pedido_D
+    public partial class TBL_InventarioMovimiento_D
     {
-        public int CodPedidoD { get; set; }
-        public int CodPedido { get; set; }
+        public int CodMovimientoD { get; set; }
+        public int CodMovimiento { get; set; }
         public int CodProducto { get; set; }
         public decimal Cantidad { get; set; }
-        public decimal Precio { get; set; }
-        public Nullable<decimal> Descuento { get; set; }
+        public decimal Costo { get; set; }
         public decimal Importe { get; set; }
     
-        public virtual TBL_Pedido TBL_Pedido { get; set; }
+        public virtual TBL_InventarioMovimiento TBL_InventarioMovimiento { get; set; }
         public virtual TBL_Producto TBL_Producto { get; set; }
     }
 }

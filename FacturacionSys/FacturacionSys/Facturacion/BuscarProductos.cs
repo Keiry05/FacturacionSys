@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacturacionSysDLL.BUSINESS_LAWYER.Facturacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,28 +11,22 @@ using System.Windows.Forms;
 
 namespace FacturacionSys.Facturacion
 {
-    public partial class Realizar_Pedido : Form
+    public partial class BuscarProductos : Form
     {
-        public Realizar_Pedido()
+        public BuscarProductos()
         {
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
-            var products = new BuscarProductos();
-            products.ShowDialog();
+            var Product = new ProductoC();
+            Product.BuscarListadoProductos(txtReferenciaB.Text, txtDescripcionB.Text);
         }
     }
 }

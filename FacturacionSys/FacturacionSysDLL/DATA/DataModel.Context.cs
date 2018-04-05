@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FacturacionSys
+namespace FacturacionSysDLL.DATA
 {
     using System;
     using System.Data.Entity;
@@ -27,7 +27,6 @@ namespace FacturacionSys
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TBL_Cliente> TBL_Cliente { get; set; }
         public virtual DbSet<TBL_CuentasPorCobrar> TBL_CuentasPorCobrar { get; set; }
         public virtual DbSet<TBL_Factura> TBL_Factura { get; set; }
@@ -38,6 +37,7 @@ namespace FacturacionSys
         public virtual DbSet<TBL_Pedido_D> TBL_Pedido_D { get; set; }
         public virtual DbSet<TBL_Producto> TBL_Producto { get; set; }
         public virtual DbSet<TBL_ProductoExistencia> TBL_ProductoExistencia { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

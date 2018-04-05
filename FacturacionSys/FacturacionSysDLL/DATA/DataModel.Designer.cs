@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Keiry Santana\Source\Repos\FacturacionSys\FacturacionSys\FacturacionSys\FacturacionSys.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Keiry Santana\source\repos\FacturacionSys\FacturacionSys\FacturacionSysDLL\DATA\DataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -7,24 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FacturacionSys
+namespace FacturacionSysDLL.DATA
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_CuentasPorCobrar
+    public partial class TBL_Factura
     {
-        public int CodCxC { get; set; }
+        public int CodFactura { get; set; }
         public string Numero { get; set; }
-        public Nullable<int> CodPedido { get; set; }
         public int CodCliente { get; set; }
         public System.DateTime Fecha { get; set; }
         public string Comentarios { get; set; }
         public int Estatus { get; set; }
         public decimal MontoTotal { get; set; }
-        public Nullable<decimal> MontoPagado { get; set; }
+        public Nullable<decimal> MontoDescuento { get; set; }
+        public Nullable<decimal> MontoDevuelto { get; set; }
     
         public virtual TBL_Cliente TBL_Cliente { get; set; }
-        public virtual TBL_Pedido TBL_Pedido { get; set; }
+        public virtual TBL_Factura_D TBL_Factura_D { get; set; }
     }
 }
