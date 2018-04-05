@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Realizar_Factura));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.listBox3 = new System.Windows.Forms.ListBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -44,26 +46,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.listBox5 = new System.Windows.Forms.ListBox();
+            this.listBox6 = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.listBox6);
+            this.groupBox1.Controls.Add(this.listBox5);
             this.groupBox1.Controls.Add(this.listBox4);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.listBox3);
-            this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.label12);
@@ -77,7 +78,6 @@
             this.groupBox1.Controls.Add(this.textBox8);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label4);
@@ -92,6 +92,34 @@
             this.groupBox1.Text = "Datos De Factura";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // listBox4
+            // 
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 19;
+            this.listBox4.Items.AddRange(new object[] {
+            "Administradora"});
+            this.listBox4.Location = new System.Drawing.Point(81, 289);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(121, 23);
+            this.listBox4.TabIndex = 45;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Teal;
+            this.label7.Location = new System.Drawing.Point(7, 293);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 19);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "Vendedor";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(212, 103);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(254, 26);
+            this.dateTimePicker1.TabIndex = 43;
+            // 
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
@@ -105,13 +133,6 @@
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(60, 23);
             this.listBox3.TabIndex = 42;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(211, 133);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(339, 26);
-            this.textBox7.TabIndex = 41;
             // 
             // label5
             // 
@@ -146,9 +167,9 @@
             this.label9.ForeColor = System.Drawing.Color.Teal;
             this.label9.Location = new System.Drawing.Point(9, 140);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 19);
+            this.label9.Size = new System.Drawing.Size(132, 19);
             this.label9.TabIndex = 38;
-            this.label9.Text = "Detalle de producto";
+            this.label9.Text = "Código de producto";
             // 
             // textBox2
             // 
@@ -229,12 +250,20 @@
             this.label10.TabIndex = 28;
             this.label10.Text = "Descuento";
             // 
-            // textBox3
+            // button1
             // 
-            this.textBox3.Location = new System.Drawing.Point(212, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(339, 26);
-            this.textBox3.TabIndex = 6;
+            this.button1.BackColor = System.Drawing.Color.CadetBlue;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button1.Location = new System.Drawing.Point(396, 314);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 67);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Emitir factura";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
@@ -282,48 +311,31 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Número de Orden";
             // 
-            // dateTimePicker1
+            // listBox5
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(212, 103);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(254, 26);
-            this.dateTimePicker1.TabIndex = 43;
+            this.listBox5.FormattingEnabled = true;
+            this.listBox5.ItemHeight = 19;
+            this.listBox5.Items.AddRange(new object[] {
+            "",
+            "Crédito",
+            "Contado"});
+            this.listBox5.Location = new System.Drawing.Point(211, 74);
+            this.listBox5.Name = "listBox5";
+            this.listBox5.Size = new System.Drawing.Size(108, 23);
+            this.listBox5.TabIndex = 46;
             // 
-            // button1
+            // listBox6
             // 
-            this.button1.BackColor = System.Drawing.Color.CadetBlue;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button1.Location = new System.Drawing.Point(396, 314);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 67);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Emitir factura";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Teal;
-            this.label7.Location = new System.Drawing.Point(7, 293);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 19);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "Vendedor";
-            // 
-            // listBox4
-            // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 19;
-            this.listBox4.Items.AddRange(new object[] {
-            "Administradora"});
-            this.listBox4.Location = new System.Drawing.Point(81, 289);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(121, 23);
-            this.listBox4.TabIndex = 45;
+            this.listBox6.FormattingEnabled = true;
+            this.listBox6.ItemHeight = 19;
+            this.listBox6.Items.AddRange(new object[] {
+            "",
+            "Crédito",
+            "Contado"});
+            this.listBox6.Location = new System.Drawing.Point(211, 135);
+            this.listBox6.Name = "listBox6";
+            this.listBox6.Size = new System.Drawing.Size(108, 23);
+            this.listBox6.TabIndex = 47;
             // 
             // Realizar_Factura
             // 
@@ -344,7 +356,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
@@ -358,7 +369,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
@@ -367,5 +377,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox listBox6;
+        private System.Windows.Forms.ListBox listBox5;
     }
 }

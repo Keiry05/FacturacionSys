@@ -21,5 +21,10 @@ namespace FacturacionSys.Facturacion
         {
 
         }
+
+        private void FormDevolucion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
