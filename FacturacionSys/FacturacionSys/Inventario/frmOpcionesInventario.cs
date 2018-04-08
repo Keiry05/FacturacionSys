@@ -43,8 +43,7 @@ namespace FacturacionSys.Inventario
 
         private void ordenDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var O = new OrdenDeCompra();
-            O.ShowDialog();
+            
         }
 
         private void existenciaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,8 +71,7 @@ namespace FacturacionSys.Inventario
 
         private void realizarConduceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var condu = new Conduce();
-            condu.ShowDialog();
+            
         }
     }
 }
