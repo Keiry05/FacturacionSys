@@ -44,22 +44,21 @@ namespace FacturacionSys.Facturacion
             var Product = new ProductoC();
         
             dataGridProductos.DataSource = Product.BuscarListadoProductos(txtReferenciaB.Text, txtDescripcionB.Text);
-            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
-            
-            button.Name = "btnAgregarProd";
-            button.HeaderText = "Button";
-            button.Text = "Agregar";
-            button.UseColumnTextForButtonValue = true; //dont forget this line
-            this.dataGridProductos.Columns.Add(button); 
-        
+           
         }
 
         private void dataGridProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            //Realizar_Pedido frmRealizarPedido = new Realizar_Pedido();
-            //frmRealizarPedido.
+           
+            var RealizarPedido = new Realizar_Pedido();
+            RealizarPedido.txtCodigoD.Text = dataGridProductos.Rows[e.RowIndex].Cells["Referencia"].Value.ToString();
+            RealizarPedido.txtDescripcionD.Text = dataGridProductos.Rows[e.RowIndex].Cells["Descripcion"].Value.ToString();
+            RealizarPedido.nudPrecioD.Value = Convert.ToDecimal(dataGridProductos.Rows[e.RowIndex].Cells["Precio"].Value);
+            RealizarPedido.nudCantidad.Value = 1;
+            RealizarPedido.Show();
+       
         }
+
 
 
     }

@@ -139,6 +139,20 @@
           <Property Name="Cantidad" Type="numeric" Precision="21" Scale="2" />
           <Property Name="Costo" Type="numeric" Precision="21" Scale="2" />
         </EntityType>
+        <EntityType Name="TBL_Suplidor">
+          <Key>
+            <PropertyRef Name="CodSuplidor" />
+          </Key>
+          <Property Name="CodSuplidor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumIdentif" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estatus" Type="int" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono1" Type="varchar" MaxLength="12" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Usuarios">
@@ -152,30 +166,6 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <Property Name="Estatus" Type="int" />
           <Property Name="IndEsAdministrador" Type="bit" />
         </EntityType>
-        <Association Name="FK_Cxc_CodCliente">
-          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
-          <End Role="TBL_CuentasPorCobrar" Type="Self.TBL_CuentasPorCobrar" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_Cliente">
-              <PropertyRef Name="CodCliente" />
-            </Principal>
-            <Dependent Role="TBL_CuentasPorCobrar">
-              <PropertyRef Name="CodCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Cxc_CodPedido">
-          <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="0..1" />
-          <End Role="TBL_CuentasPorCobrar" Type="Self.TBL_CuentasPorCobrar" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_Pedido">
-              <PropertyRef Name="CodPedido" />
-            </Principal>
-            <Dependent Role="TBL_CuentasPorCobrar">
-              <PropertyRef Name="CodPedido" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Existencia_CodProducto">
           <End Role="TBL_Producto" Type="Self.TBL_Producto" Multiplicity="0..1" />
           <End Role="TBL_ProductoExistencia" Type="Self.TBL_ProductoExistencia" Multiplicity="*" />
@@ -185,18 +175,6 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
             </Principal>
             <Dependent Role="TBL_ProductoExistencia">
               <PropertyRef Name="CodProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Factura_CodCliente">
-          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
-          <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_Cliente">
-              <PropertyRef Name="CodCliente" />
-            </Principal>
-            <Dependent Role="TBL_Factura">
-              <PropertyRef Name="CodCliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -248,18 +226,6 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pedido_CodCliente">
-          <End Role="TBL_Cliente" Type="Self.TBL_Cliente" Multiplicity="1" />
-          <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_Cliente">
-              <PropertyRef Name="CodCliente" />
-            </Principal>
-            <Dependent Role="TBL_Pedido">
-              <PropertyRef Name="CodCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PedidoD_CodPedido">
           <End Role="TBL_Pedido" Type="Self.TBL_Pedido" Multiplicity="1" />
           <End Role="TBL_Pedido_D" Type="Self.TBL_Pedido_D" Multiplicity="*" />
@@ -299,6 +265,10 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
           <Parameter Name="Referencia" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SP_BUSCARSUPLIDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="NumIdentif" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -335,6 +305,7 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <EntitySet Name="TBL_Pedido_D" EntityType="Self.TBL_Pedido_D" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Producto" EntityType="Self.TBL_Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_ProductoExistencia" EntityType="Self.TBL_ProductoExistencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Suplidor" EntityType="Self.TBL_Suplidor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Usuarios].[ID] AS [ID], 
@@ -345,21 +316,9 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
     [Usuarios].[IndEsAdministrador] AS [IndEsAdministrador]
     FROM [dbo].[Usuarios] AS [Usuarios]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_Cxc_CodCliente" Association="Self.FK_Cxc_CodCliente">
-            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
-            <End Role="TBL_CuentasPorCobrar" EntitySet="TBL_CuentasPorCobrar" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cxc_CodPedido" Association="Self.FK_Cxc_CodPedido">
-            <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
-            <End Role="TBL_CuentasPorCobrar" EntitySet="TBL_CuentasPorCobrar" />
-          </AssociationSet>
           <AssociationSet Name="FK_Existencia_CodProducto" Association="Self.FK_Existencia_CodProducto">
             <End Role="TBL_Producto" EntitySet="TBL_Producto" />
             <End Role="TBL_ProductoExistencia" EntitySet="TBL_ProductoExistencia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Factura_CodCliente" Association="Self.FK_Factura_CodCliente">
-            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
-            <End Role="TBL_Factura" EntitySet="TBL_Factura" />
           </AssociationSet>
           <AssociationSet Name="FK_FacturaD_CodFactura" Association="Self.FK_FacturaD_CodFactura">
             <End Role="TBL_Factura" EntitySet="TBL_Factura" />
@@ -376,10 +335,6 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <AssociationSet Name="FK_MovimientoD_CodProducto" Association="Self.FK_MovimientoD_CodProducto">
             <End Role="TBL_Producto" EntitySet="TBL_Producto" />
             <End Role="TBL_InventarioMovimiento_D" EntitySet="TBL_InventarioMovimiento_D" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Pedido_CodCliente" Association="Self.FK_Pedido_CodCliente">
-            <End Role="TBL_Cliente" EntitySet="TBL_Cliente" />
-            <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
           </AssociationSet>
           <AssociationSet Name="FK_PedidoD_CodPedido" Association="Self.FK_PedidoD_CodPedido">
             <End Role="TBL_Pedido" EntitySet="TBL_Pedido" />
@@ -788,6 +743,11 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="NumIdentif" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="TBL_Suplidor" EntityType="FacturacionSysDBModel.TBL_Suplidor" />
+          <FunctionImport Name="SP_BUSCARSUPLIDOR" ReturnType="Collection(FacturacionSysDBModel.SP_BUSCARSUPLIDOR_Result)">
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="NumIdentif" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_BUSCARPRODUCTOS_Result">
           <Property Type="String" Name="Referencia" Nullable="false" MaxLength="50" />
@@ -807,6 +767,28 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
         <ComplexType Name="SP_BUSCARCLIENTES_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Cedula" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Telefono1" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="TBL_Suplidor">
+          <Key>
+            <PropertyRef Name="CodSuplidor" />
+          </Key>
+          <Property Name="CodSuplidor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumIdentif" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Estatus" Type="Int32" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="SP_BUSCARSUPLIDOR_Result">
           <Property Type="Int32" Name="Codigo" Nullable="false" />
           <Property Type="String" Name="Nombres" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="Cedula" Nullable="false" MaxLength="12" />
@@ -1014,6 +996,33 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <FunctionImportMapping FunctionImportName="SP_BUSCARCLIENTES" FunctionName="FacturacionSysDBModel.Store.SP_BUSCARCLIENTES">
             <ResultMapping>
               <ComplexTypeMapping TypeName="FacturacionSysDBModel.SP_BUSCARCLIENTES_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TBL_Suplidor">
+            <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_Suplidor">
+              <MappingFragment StoreEntitySet="TBL_Suplidor">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="NumIdentif" ColumnName="NumIdentif" />
+                <ScalarProperty Name="CodSuplidor" ColumnName="CodSuplidor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_BUSCARSUPLIDOR" FunctionName="FacturacionSysDBModel.Store.SP_BUSCARSUPLIDOR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FacturacionSysDBModel.SP_BUSCARSUPLIDOR_Result">
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />

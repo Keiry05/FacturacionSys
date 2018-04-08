@@ -28,6 +28,7 @@
         <AssociationConnector Association="FacturacionSysDBModel.FK_PedidoD_CodPedido" ManuallyRouted="false" />
         <AssociationConnector Association="FacturacionSysDBModel.FK_PedidoD_CodProducto" ManuallyRouted="false" />
         <AssociationConnector Association="FacturacionSysDBModel.FK_Existencia_CodProducto" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FacturacionSysDBModel.TBL_Suplidor" Width="1.5" PointX="8.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

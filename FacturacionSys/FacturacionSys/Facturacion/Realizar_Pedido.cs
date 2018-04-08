@@ -28,23 +28,34 @@ namespace FacturacionSys.Facturacion
 
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void Realizar_Pedido_Load(object sender, EventArgs e)
         {
-
-            var products = new BuscarProductos();
-            products.ShowDialog();
-            var Product = new ProductoC();
-            var producto = Product.BuscarListadoProductos(products.referencia, "").FirstOrDefault();
-
-            txtCodigoD.Text = producto.Referencia;
-            txtDescripcionD.Text = producto.Descripcion;
-            nudCantidad.Value = 1;
-            nudPrecioD.Value = producto.Precio.Value;
-            txtImporte.Text = (producto.Precio.Value *1).ToString();
-
+            LlenarCboClientes();
         }
 
 
-      
+        private void LlenarCboClientes()
+        {
+            var clientes = new ClienteC();
+            cboCliente.DisplayMember = "Nombres";
+            cboCliente.ValueMember = "Codigo";
+            cboCliente.DataSource = clientes.BuscarListadoClientes("", "");
+          
+            dtpFecha.Format = DateTimePickerFormat.Custom;
+            dtpFecha.CustomFormat = "yyyy-MM-dd";
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+    
+        BuscarProductos products = new BuscarProductos();
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+           
+            products.ShowDialog();
+            products.Hide();
+        }
     }
 }

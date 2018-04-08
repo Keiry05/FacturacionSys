@@ -39,6 +39,7 @@ namespace FacturacionSysDLL.DATA
         public virtual DbSet<TBL_Producto> TBL_Producto { get; set; }
         public virtual DbSet<TBL_ProductoExistencia> TBL_ProductoExistencia { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<TBL_Suplidor> TBL_Suplidor { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -167,6 +168,19 @@ namespace FacturacionSysDLL.DATA
                 new ObjectParameter("NumIdentif", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARCLIENTES_Result>("SP_BUSCARCLIENTES", descripcionParameter, numIdentifParameter);
+        }
+    
+        public virtual ObjectResult<SP_BUSCARSUPLIDOR_Result> SP_BUSCARSUPLIDOR(string descripcion, string numIdentif)
+        {
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var numIdentifParameter = numIdentif != null ?
+                new ObjectParameter("NumIdentif", numIdentif) :
+                new ObjectParameter("NumIdentif", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARSUPLIDOR_Result>("SP_BUSCARSUPLIDOR", descripcionParameter, numIdentifParameter);
         }
     }
 }
