@@ -169,5 +169,18 @@ namespace FacturacionSysDLL.DATA
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARCLIENTES_Result>("SP_BUSCARCLIENTES", descripcionParameter, numIdentifParameter);
         }
+    
+        public virtual ObjectResult<SP_BUSCARSUPLIDOR_Result> SP_BUSCARSUPLIDOR(string descripcion, string numIdentif)
+        {
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var numIdentifParameter = numIdentif != null ?
+                new ObjectParameter("NumIdentif", numIdentif) :
+                new ObjectParameter("NumIdentif", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARSUPLIDOR_Result>("SP_BUSCARSUPLIDOR", descripcionParameter, numIdentifParameter);
+        }
     }
 }

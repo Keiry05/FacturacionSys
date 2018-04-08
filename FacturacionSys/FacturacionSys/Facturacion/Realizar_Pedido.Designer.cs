@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Realizar_Pedido));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboCliente = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,9 +59,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigoD = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaCompromiso = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -74,22 +76,51 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cboCliente);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpFechaCompromiso);
+            this.groupBox1.Controls.Add(this.dtpFecha);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(27, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(706, 456);
+            this.groupBox1.Size = new System.Drawing.Size(691, 545);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Del Pedido";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(183, 139);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(254, 75);
+            this.richTextBox1.TabIndex = 45;
+            this.richTextBox1.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Teal;
+            this.label5.Location = new System.Drawing.Point(80, 151);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 22);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "Comentarios";
+            // 
+            // cboCliente
+            // 
+            this.cboCliente.FormattingEnabled = true;
+            this.cboCliente.Location = new System.Drawing.Point(183, 36);
+            this.cboCliente.Name = "cboCliente";
+            this.cboCliente.Size = new System.Drawing.Size(254, 30);
+            this.cboCliente.TabIndex = 42;
             // 
             // dataGridView1
             // 
@@ -105,7 +136,7 @@
             this.Importe,
             this.Edit,
             this.Delete});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 306);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 382);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(649, 150);
             this.dataGridView1.TabIndex = 39;
@@ -173,7 +204,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtCodigoD);
-            this.groupBox2.Location = new System.Drawing.Point(13, 158);
+            this.groupBox2.Location = new System.Drawing.Point(13, 220);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(649, 156);
             this.groupBox2.TabIndex = 38;
@@ -227,7 +258,7 @@
             this.btnBuscar.TabIndex = 11;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // label7
             // 
@@ -304,32 +335,19 @@
             this.txtCodigoD.Size = new System.Drawing.Size(100, 28);
             this.txtCodigoD.TabIndex = 0;
             // 
-            // listBox1
+            // dtpFechaCompromiso
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 22;
-            this.listBox1.Items.AddRange(new object[] {
-            "",
-            "Crédito",
-            "Contado"});
-            this.listBox1.Location = new System.Drawing.Point(183, 40);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(260, 26);
-            this.listBox1.TabIndex = 36;
+            this.dtpFechaCompromiso.Location = new System.Drawing.Point(183, 105);
+            this.dtpFechaCompromiso.Name = "dtpFechaCompromiso";
+            this.dtpFechaCompromiso.Size = new System.Drawing.Size(254, 28);
+            this.dtpFechaCompromiso.TabIndex = 35;
             // 
-            // dateTimePicker2
+            // dtpFecha
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(183, 105);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(254, 28);
-            this.dateTimePicker2.TabIndex = 35;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(183, 72);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(254, 28);
-            this.dateTimePicker1.TabIndex = 34;
+            this.dtpFecha.Location = new System.Drawing.Point(183, 72);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(254, 28);
+            this.dtpFecha.TabIndex = 34;
             // 
             // label9
             // 
@@ -354,7 +372,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Teal;
-            this.label4.Location = new System.Drawing.Point(107, 77);
+            this.label4.Location = new System.Drawing.Point(118, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 22);
             this.label4.TabIndex = 3;
@@ -364,7 +382,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(96, 44);
+            this.label1.Location = new System.Drawing.Point(118, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 22);
             this.label1.TabIndex = 0;
@@ -378,7 +396,7 @@
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(230, 485);
+            this.button1.Location = new System.Drawing.Point(224, 550);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(225, 50);
             this.button1.TabIndex = 8;
@@ -391,11 +409,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(733, 547);
+            this.ClientSize = new System.Drawing.Size(741, 606);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Name = "Realizar_Pedido";
             this.Text = "Realizar_Pedido";
+            this.Load += new System.EventHandler(this.Realizar_Pedido_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -410,40 +429,42 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtDescripcionD;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtImporte;
-        private System.Windows.Forms.Label nudPrecio;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCodigoD;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.NumericUpDown nudPrecioD;
-        private System.Windows.Forms.NumericUpDown nudCantidad;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtItbis;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.Label nudDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DateTimePicker dtpFecha;
+        public System.Windows.Forms.DateTimePicker dtpFechaCompromiso;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.TextBox txtDescripcionD;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txtImporte;
+        public System.Windows.Forms.Label nudPrecio;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox txtCodigoD;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.NumericUpDown nudPrecioD;
+        public System.Windows.Forms.NumericUpDown nudCantidad;
+        public System.Windows.Forms.Button btnAgregar;
+        public System.Windows.Forms.Button btnBuscar;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox txtItbis;
+        public System.Windows.Forms.NumericUpDown numericUpDown3;
+        public System.Windows.Forms.Label nudDescuento;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        public System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        public System.Windows.Forms.DataGridViewButtonColumn Edit;
+        public System.Windows.Forms.DataGridViewButtonColumn Delete;
+        public System.Windows.Forms.ComboBox cboCliente;
+        public System.Windows.Forms.RichTextBox richTextBox1;
+        public System.Windows.Forms.Label label5;
     }
 }

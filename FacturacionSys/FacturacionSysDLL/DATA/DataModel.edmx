@@ -265,6 +265,10 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
           <Parameter Name="Referencia" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SP_BUSCARSUPLIDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="NumIdentif" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -740,6 +744,10 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
             <Parameter Name="NumIdentif" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="TBL_Suplidor" EntityType="FacturacionSysDBModel.TBL_Suplidor" />
+          <FunctionImport Name="SP_BUSCARSUPLIDOR" ReturnType="Collection(FacturacionSysDBModel.SP_BUSCARSUPLIDOR_Result)">
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="NumIdentif" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_BUSCARPRODUCTOS_Result">
           <Property Type="String" Name="Referencia" Nullable="false" MaxLength="50" />
@@ -780,6 +788,14 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <Property Name="Telefono1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="SP_BUSCARSUPLIDOR_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Cedula" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Telefono1" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1004,6 +1020,18 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_BUSCARSUPLIDOR" FunctionName="FacturacionSysDBModel.Store.SP_BUSCARSUPLIDOR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FacturacionSysDBModel.SP_BUSCARSUPLIDOR_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
