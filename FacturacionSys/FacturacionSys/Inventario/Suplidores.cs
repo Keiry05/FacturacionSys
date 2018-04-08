@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacturacionSysDLL.BUSINESS_LAWYER.Facturacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +30,13 @@ namespace FacturacionSys.Inventario
         private void Suplidores_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClienteC suplidor = new ClienteC();
+
+            dataGridClientes.DataSource = cliente.BuscarListadoClientes(txtCedulaB.Text, txtDescripcionB.Text);
         }
     }
 }

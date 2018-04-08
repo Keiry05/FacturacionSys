@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BUSINESS LAWYER\Facturacion\ClienteC.cs" />
     <Compile Include="BUSINESS LAWYER\Facturacion\ProductoC.cs" />
+    <Compile Include="BUSINESS LAWYER\Inventario\SuplidorC.cs" />
     <Compile Include="BUSINESS LAWYER\Menu\LoginC.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DATA\DataModel.Context.cs">
@@ -132,9 +133,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BUSINESS LAWYER\Inventario\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DATA\DataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
