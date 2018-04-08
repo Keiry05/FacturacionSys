@@ -12,6 +12,7 @@ namespace FacturacionSys.Inventario
 {
     public partial class NuevoSuplidor : Form
     {
+        
         public NuevoSuplidor()
         {
             InitializeComponent();

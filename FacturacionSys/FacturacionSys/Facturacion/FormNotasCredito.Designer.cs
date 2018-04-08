@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNotasCredito));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -41,14 +49,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +81,77 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(557, 24);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(232, 26);
+            this.textBox6.TabIndex = 33;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(392, 177);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(132, 26);
+            this.textBox5.TabIndex = 32;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Teal;
+            this.label9.Location = new System.Drawing.Point(252, 184);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 19);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Monto a devolver";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(557, 120);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(132, 26);
+            this.textBox4.TabIndex = 30;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Teal;
+            this.label7.Location = new System.Drawing.Point(417, 127);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 19);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Monto ITBIS";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(557, 88);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(132, 26);
+            this.textBox1.TabIndex = 28;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Teal;
+            this.label6.Location = new System.Drawing.Point(417, 95);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Total factura";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Teal;
+            this.label4.Location = new System.Drawing.Point(413, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 19);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Fecha factura";
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.CadetBlue;
@@ -100,7 +171,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(149, 120);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(232, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(243, 26);
             this.dateTimePicker1.TabIndex = 24;
             // 
             // textBox9
@@ -185,77 +256,6 @@
             this.label1.Size = new System.Drawing.Size(127, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de cliente";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Teal;
-            this.label4.Location = new System.Drawing.Point(413, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 19);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Fecha factura";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(557, 88);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(132, 26);
-            this.textBox1.TabIndex = 28;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Teal;
-            this.label6.Location = new System.Drawing.Point(417, 95);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 19);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Total factura";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(557, 120);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(132, 26);
-            this.textBox4.TabIndex = 30;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Teal;
-            this.label7.Location = new System.Drawing.Point(417, 127);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 19);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Monto ITBIS";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(392, 177);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(132, 26);
-            this.textBox5.TabIndex = 32;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Teal;
-            this.label9.Location = new System.Drawing.Point(252, 184);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 19);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "Monto a devolver";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(557, 24);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(232, 26);
-            this.textBox6.TabIndex = 33;
             // 
             // FormNotasCredito
             // 
