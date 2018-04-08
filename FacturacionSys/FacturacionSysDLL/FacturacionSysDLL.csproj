@@ -113,6 +113,9 @@
     <Compile Include="DATA\TBL_ProductoExistencia.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\TBL_Suplidor.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DATA\Usuarios.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>

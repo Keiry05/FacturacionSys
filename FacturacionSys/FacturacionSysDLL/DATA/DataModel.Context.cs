@@ -39,6 +39,7 @@ namespace FacturacionSysDLL.DATA
         public virtual DbSet<TBL_Producto> TBL_Producto { get; set; }
         public virtual DbSet<TBL_ProductoExistencia> TBL_ProductoExistencia { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<TBL_Suplidor> TBL_Suplidor { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
