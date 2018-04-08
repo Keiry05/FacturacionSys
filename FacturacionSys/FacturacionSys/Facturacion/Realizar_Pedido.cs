@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacturacionSysDLL.BUSINESS_LAWYER.Facturacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +33,18 @@ namespace FacturacionSys.Facturacion
 
             var products = new BuscarProductos();
             products.ShowDialog();
+            var Product = new ProductoC();
+            var producto = Product.BuscarListadoProductos(products.referencia, "").FirstOrDefault();
+
+            txtCodigoD.Text = producto.Referencia;
+            txtDescripcionD.Text = producto.Descripcion;
+            nudCantidad.Value = 1;
+            nudPrecioD.Value = producto.Precio.Value;
+            txtImporte.Text = (producto.Precio.Value *1).ToString();
+
         }
+
+
+      
     }
 }

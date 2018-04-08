@@ -27,6 +27,7 @@ namespace FacturacionSysDLL.DATA
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TBL_Cliente> TBL_Cliente { get; set; }
         public virtual DbSet<TBL_CuentasPorCobrar> TBL_CuentasPorCobrar { get; set; }
         public virtual DbSet<TBL_Factura> TBL_Factura { get; set; }
@@ -58,6 +59,19 @@ namespace FacturacionSysDLL.DATA
                 new ObjectParameter("definition", typeof(byte[]));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual ObjectResult<SP_BUSCARPRODUCTOS_Result> SP_BUSCARPRODUCTOS(string descripcion, string referencia)
+        {
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var referenciaParameter = referencia != null ?
+                new ObjectParameter("Referencia", referencia) :
+                new ObjectParameter("Referencia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARPRODUCTOS_Result>("SP_BUSCARPRODUCTOS", descripcionParameter, referenciaParameter);
         }
     
         public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -140,6 +154,19 @@ namespace FacturacionSysDLL.DATA
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<SP_BUSCARCLIENTES_Result> SP_BUSCARCLIENTES(string descripcion, string numIdentif)
+        {
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var numIdentifParameter = numIdentif != null ?
+                new ObjectParameter("NumIdentif", numIdentif) :
+                new ObjectParameter("NumIdentif", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARCLIENTES_Result>("SP_BUSCARCLIENTES", descripcionParameter, numIdentifParameter);
         }
     }
 }

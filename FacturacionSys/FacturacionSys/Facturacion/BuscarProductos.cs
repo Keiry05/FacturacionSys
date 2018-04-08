@@ -13,6 +13,10 @@ namespace FacturacionSys.Facturacion
 {
     public partial class BuscarProductos : Form
     {
+
+        public string referencia { get; set; }
+
+
         public BuscarProductos()
         {
             InitializeComponent();
@@ -25,8 +29,7 @@ namespace FacturacionSys.Facturacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            var Product = new ProductoC();
-            Product.BuscarListadoProductos(txtReferenciaB.Text, txtDescripcionB.Text);
+          
         }
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)
@@ -35,5 +38,29 @@ namespace FacturacionSys.Facturacion
             CreaProdi.ShowDialog();
               
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var Product = new ProductoC();
+        
+            dataGridProductos.DataSource = Product.BuscarListadoProductos(txtReferenciaB.Text, txtDescripcionB.Text);
+            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
+            
+            button.Name = "btnAgregarProd";
+            button.HeaderText = "Button";
+            button.Text = "Agregar";
+            button.UseColumnTextForButtonValue = true; //dont forget this line
+            this.dataGridProductos.Columns.Add(button); 
+        
+        }
+
+        private void dataGridProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            //Realizar_Pedido frmRealizarPedido = new Realizar_Pedido();
+            //frmRealizarPedido.
+        }
+
+
     }
-}
+    }
