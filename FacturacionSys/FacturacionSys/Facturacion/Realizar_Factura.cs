@@ -171,6 +171,11 @@ namespace FacturacionSys.Facturacion
         {
 
         }
+
+        private void dataGridproducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

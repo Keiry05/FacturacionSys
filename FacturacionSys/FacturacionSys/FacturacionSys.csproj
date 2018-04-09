@@ -102,6 +102,12 @@
     <Compile Include="Facturacion\PedidosFacturados.Designer.cs">
       <DependentUpon>PedidosFacturados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\PedidosQsePuedenFacturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\PedidosQsePuedenFacturar.Designer.cs">
+      <DependentUpon>PedidosQsePuedenFacturar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Pedidos_pendientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\PedidosFacturados.resx">
       <DependentUpon>PedidosFacturados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\PedidosQsePuedenFacturar.resx">
+      <DependentUpon>PedidosQsePuedenFacturar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Pedidos_pendientes.resx">
       <DependentUpon>Pedidos_pendientes.cs</DependentUpon>

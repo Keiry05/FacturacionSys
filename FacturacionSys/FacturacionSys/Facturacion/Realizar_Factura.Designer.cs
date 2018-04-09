@@ -42,11 +42,9 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.dataGridproducto = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +72,8 @@
             this.cboClientes = new System.Windows.Forms.ComboBox();
             this.txtItbis = new System.Windows.Forms.NumericUpDown();
             this.txtImporte = new System.Windows.Forms.NumericUpDown();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridproducto)).BeginInit();
@@ -219,21 +219,6 @@
             this.label9.TabIndex = 38;
             this.label9.Text = "Nombre de cliente";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.CadetBlue;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button1.Location = new System.Drawing.Point(645, 281);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 67);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Emitir factura";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -266,22 +251,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.CadetBlue;
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.Location = new System.Drawing.Point(273, 358);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(156, 43);
-            this.button5.TabIndex = 43;
-            this.button5.Text = "Guardar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
             // dataGridproducto
             // 
             this.dataGridproducto.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -300,6 +269,7 @@
             this.dataGridproducto.Name = "dataGridproducto";
             this.dataGridproducto.Size = new System.Drawing.Size(694, 150);
             this.dataGridproducto.TabIndex = 42;
+            this.dataGridproducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridproducto_CellContentClick);
             // 
             // Codigo
             // 
@@ -515,6 +485,37 @@
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(99, 26);
             this.txtImporte.TabIndex = 20;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.CadetBlue;
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button5.Location = new System.Drawing.Point(273, 358);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(156, 43);
+            this.button5.TabIndex = 43;
+            this.button5.Text = "Guardar";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.CadetBlue;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button1.Location = new System.Drawing.Point(645, 281);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 67);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Emitir factura";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Realizar_Factura
             // 
