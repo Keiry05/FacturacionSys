@@ -30,9 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entrada_Inventario));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtComentarios = new System.Windows.Forms.RichTextBox();
+            this.cboSuplidor = new System.Windows.Forms.ComboBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboSuplidor = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NupImporte)).BeginInit();
@@ -67,11 +67,11 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.richTextBox1);
+            this.groupBox3.Controls.Add(this.txtComentarios);
             this.groupBox3.Controls.Add(this.cboSuplidor);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.btnGuardar);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
+            this.groupBox3.Controls.Add(this.dtpFecha);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label3);
@@ -84,20 +84,37 @@
             this.groupBox3.Text = "Datos Generales";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // button1
+            // txtComentarios
             // 
-            this.button1.BackColor = System.Drawing.Color.CadetBlue;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button1.Location = new System.Drawing.Point(520, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 90);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.txtComentarios.Location = new System.Drawing.Point(150, 82);
+            this.txtComentarios.Name = "txtComentarios";
+            this.txtComentarios.Size = new System.Drawing.Size(234, 64);
+            this.txtComentarios.TabIndex = 37;
+            this.txtComentarios.Text = "";
+            // 
+            // cboSuplidor
+            // 
+            this.cboSuplidor.FormattingEnabled = true;
+            this.cboSuplidor.Location = new System.Drawing.Point(150, 31);
+            this.cboSuplidor.Name = "cboSuplidor";
+            this.cboSuplidor.Size = new System.Drawing.Size(222, 30);
+            this.cboSuplidor.TabIndex = 36;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnGuardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGuardar.BackgroundImage")));
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGuardar.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnGuardar.Location = new System.Drawing.Point(520, 100);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(135, 90);
+            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label4
             // 
@@ -109,12 +126,12 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Comentarios";
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(466, 21);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(232, 28);
-            this.dateTimePicker1.TabIndex = 24;
+            this.dtpFecha.Location = new System.Drawing.Point(466, 21);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(232, 28);
+            this.dtpFecha.TabIndex = 24;
             // 
             // label5
             // 
@@ -324,22 +341,6 @@
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
             // 
-            // cboSuplidor
-            // 
-            this.cboSuplidor.FormattingEnabled = true;
-            this.cboSuplidor.Location = new System.Drawing.Point(150, 31);
-            this.cboSuplidor.Name = "cboSuplidor";
-            this.cboSuplidor.Size = new System.Drawing.Size(222, 30);
-            this.cboSuplidor.TabIndex = 36;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(150, 82);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(234, 64);
-            this.richTextBox1.TabIndex = 37;
-            this.richTextBox1.Text = "";
-            // 
             // Entrada_Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,10 +366,10 @@
         }
 
         #endregion
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnGuardar;
         public System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.DateTimePicker dtpFecha;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label11;
         public System.Windows.Forms.Label label3;
@@ -392,6 +393,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.ComboBox cboSuplidor;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtComentarios;
     }
 }

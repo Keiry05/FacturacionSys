@@ -16,5 +16,10 @@ namespace FacturacionSys.Inventario
         {
             InitializeComponent();
         }
+
+        private void SalidaDeProducto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

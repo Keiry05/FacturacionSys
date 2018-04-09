@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacturacionSysDLL.BUSINESS_LAWYER.Inventario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,8 @@ namespace FacturacionSys.Inventario
 
         private void EntradaDeProducto_Load(object sender, EventArgs e)
         {
+            EntradaInventario entradas = new EntradaInventario();
+            dgEntrada.DataSource = entradas.BuscarListadoEntradas();
 
         }
     }

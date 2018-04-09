@@ -126,12 +126,6 @@
     <Compile Include="Inventario\BuscarProductosIn.Designer.cs">
       <DependentUpon>BuscarProductosIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario\Conduce.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\Conduce.Designer.cs">
-      <DependentUpon>Conduce.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventario\Entrada Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,12 +167,6 @@
     </Compile>
     <Compile Include="Inventario\NuevoSuplidor.Designer.cs">
       <DependentUpon>NuevoSuplidor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\OrdenDeCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\OrdenDeCompra.Designer.cs">
-      <DependentUpon>OrdenDeCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\SalidaDeProducto.cs">
       <SubType>Form</SubType>
@@ -242,9 +230,6 @@
     <EmbeddedResource Include="Inventario\BuscarProductosIn.resx">
       <DependentUpon>BuscarProductosIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\Conduce.resx">
-      <DependentUpon>Conduce.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\Entrada Inventario.resx">
       <DependentUpon>Entrada Inventario.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,9 +250,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\NuevoSuplidor.resx">
       <DependentUpon>NuevoSuplidor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\OrdenDeCompra.resx">
-      <DependentUpon>OrdenDeCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\SalidaDeProducto.resx">
       <DependentUpon>SalidaDeProducto.cs</DependentUpon>
