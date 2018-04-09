@@ -120,6 +120,12 @@
     <Compile Include="Facturacion\Realizar_Pedido.Designer.cs">
       <DependentUpon>Realizar_Pedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\BuscarProductosIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\BuscarProductosIn.Designer.cs">
+      <DependentUpon>BuscarProductosIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\Conduce.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Realizar_Pedido.resx">
       <DependentUpon>Realizar_Pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\BuscarProductosIn.resx">
+      <DependentUpon>BuscarProductosIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\Conduce.resx">
       <DependentUpon>Conduce.cs</DependentUpon>

@@ -145,6 +145,7 @@ namespace FacturacionSys.Facturacion
                 pedidos.Fecha = dtpFecha.Value;
                 pedidos.FechaCompromiso = dtpFechaCompromiso.Value;
                 pedidos.MontoDescuento = 0;
+                pedidos.Estatus = 9;
              
                 List<TBL_Pedido_D> lstDetalle = new List<TBL_Pedido_D>();
                 TBL_Pedido_D detalle = new TBL_Pedido_D();
