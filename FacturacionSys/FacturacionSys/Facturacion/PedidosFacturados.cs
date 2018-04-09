@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacturacionSysDLL.BUSINESS_LAWYER.Facturacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,8 @@ namespace FacturacionSys.Facturacion
 
         private void PedidosFacturados_Load(object sender, EventArgs e)
         {
+            //Pedido pedido = new Pedido();
+            //dgPedidoFact.DataSource = pedido.BuscarListadoClientes();
 
         }
     }

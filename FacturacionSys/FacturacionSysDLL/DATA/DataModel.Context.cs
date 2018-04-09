@@ -182,5 +182,54 @@ namespace FacturacionSysDLL.DATA
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARSUPLIDOR_Result>("SP_BUSCARSUPLIDOR", descripcionParameter, numIdentifParameter);
         }
+    
+        public virtual int ActualizarExistencia(Nullable<int> cod_Producto, Nullable<decimal> cantidad, Nullable<decimal> costo)
+        {
+            var cod_ProductoParameter = cod_Producto.HasValue ?
+                new ObjectParameter("Cod_Producto", cod_Producto) :
+                new ObjectParameter("Cod_Producto", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("Cantidad", cantidad) :
+                new ObjectParameter("Cantidad", typeof(decimal));
+    
+            var costoParameter = costo.HasValue ?
+                new ObjectParameter("Costo", costo) :
+                new ObjectParameter("Costo", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarExistencia", cod_ProductoParameter, cantidadParameter, costoParameter);
+        }
+    
+        public virtual ObjectResult<SP_BUSCARPEDIDO_Result> SP_BUSCARPEDIDO(string codigo)
+        {
+            var codigoParameter = codigo != null ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARPEDIDO_Result>("SP_BUSCARPEDIDO", codigoParameter);
+        }
+    
+        public virtual int ConsumirExistencia(Nullable<int> cod_Producto, Nullable<decimal> cantidad)
+        {
+            var cod_ProductoParameter = cod_Producto.HasValue ?
+                new ObjectParameter("Cod_Producto", cod_Producto) :
+                new ObjectParameter("Cod_Producto", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("Cantidad", cantidad) :
+                new ObjectParameter("Cantidad", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ConsumirExistencia", cod_ProductoParameter, cantidadParameter);
+        }
+    
+        public virtual ObjectResult<ConsultarEntradasInventario_Result> ConsultarEntradasInventario()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarEntradasInventario_Result>("ConsultarEntradasInventario");
+        }
+    
+        public virtual ObjectResult<ConsultarExistencia_Result> ConsultarExistencia()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarExistencia_Result>("ConsultarExistencia");
+        }
     }
 }

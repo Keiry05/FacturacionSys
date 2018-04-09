@@ -98,14 +98,14 @@
             this.textBox8.Location = new System.Drawing.Point(528, 25);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(246, 26);
+            this.textBox8.Size = new System.Drawing.Size(246, 28);
             this.textBox8.TabIndex = 39;
             // 
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(159, 203);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(187, 26);
+            this.textBox7.Size = new System.Drawing.Size(187, 28);
             this.textBox7.TabIndex = 38;
             // 
             // label8
@@ -114,7 +114,7 @@
             this.label8.ForeColor = System.Drawing.Color.Teal;
             this.label8.Location = new System.Drawing.Point(19, 206);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(134, 19);
+            this.label8.Size = new System.Drawing.Size(152, 22);
             this.label8.TabIndex = 37;
             this.label8.Text = "Cantidad a devolver";
             // 
@@ -139,7 +139,7 @@
             this.textBox6.Location = new System.Drawing.Point(528, 57);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(246, 26);
+            this.textBox6.Size = new System.Drawing.Size(246, 28);
             this.textBox6.TabIndex = 36;
             // 
             // label7
@@ -148,7 +148,7 @@
             this.label7.ForeColor = System.Drawing.Color.Teal;
             this.label7.Location = new System.Drawing.Point(417, 64);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 19);
+            this.label7.Size = new System.Drawing.Size(76, 22);
             this.label7.TabIndex = 35;
             this.label7.Text = "Condición";
             // 
@@ -157,7 +157,7 @@
             this.textBox4.Location = new System.Drawing.Point(154, 121);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(246, 26);
+            this.textBox4.Size = new System.Drawing.Size(246, 28);
             this.textBox4.TabIndex = 34;
             // 
             // label6
@@ -166,7 +166,7 @@
             this.label6.ForeColor = System.Drawing.Color.Teal;
             this.label6.Location = new System.Drawing.Point(9, 124);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 19);
+            this.label6.Size = new System.Drawing.Size(72, 22);
             this.label6.TabIndex = 33;
             this.label6.Text = "Teléfono";
             // 
@@ -175,7 +175,7 @@
             this.textBox5.Location = new System.Drawing.Point(154, 89);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(246, 26);
+            this.textBox5.Size = new System.Drawing.Size(246, 28);
             this.textBox5.TabIndex = 25;
             // 
             // label5
@@ -184,7 +184,7 @@
             this.label5.ForeColor = System.Drawing.Color.Teal;
             this.label5.Location = new System.Drawing.Point(417, 32);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 19);
+            this.label5.Size = new System.Drawing.Size(115, 22);
             this.label5.TabIndex = 24;
             this.label5.Text = "Fecha de Fac.";
             // 
@@ -194,7 +194,7 @@
             this.label4.ForeColor = System.Drawing.Color.Teal;
             this.label4.Location = new System.Drawing.Point(9, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 19);
+            this.label4.Size = new System.Drawing.Size(76, 22);
             this.label4.TabIndex = 23;
             this.label4.Text = "Dirección";
             // 
@@ -204,7 +204,7 @@
             this.textBox1.Location = new System.Drawing.Point(154, 25);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(246, 26);
+            this.textBox1.Size = new System.Drawing.Size(246, 28);
             this.textBox1.TabIndex = 22;
             // 
             // label11
@@ -213,7 +213,7 @@
             this.label11.ForeColor = System.Drawing.Color.Teal;
             this.label11.Location = new System.Drawing.Point(15, 171);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 19);
+            this.label11.Size = new System.Drawing.Size(0, 22);
             this.label11.TabIndex = 10;
             // 
             // textBox2
@@ -222,7 +222,7 @@
             this.textBox2.Location = new System.Drawing.Point(154, 57);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(246, 26);
+            this.textBox2.Size = new System.Drawing.Size(246, 28);
             this.textBox2.TabIndex = 5;
             // 
             // label2
@@ -231,7 +231,7 @@
             this.label2.ForeColor = System.Drawing.Color.Teal;
             this.label2.Location = new System.Drawing.Point(9, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 19);
+            this.label2.Size = new System.Drawing.Size(56, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "Cédula";
             // 
@@ -241,7 +241,7 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(9, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 19);
+            this.label1.Size = new System.Drawing.Size(144, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de cliente";
             // 
@@ -278,7 +278,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(24, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 19);
+            this.label3.Size = new System.Drawing.Size(150, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Número de factura";
             // 
@@ -286,7 +286,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(19, 41);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 26);
+            this.textBox3.Size = new System.Drawing.Size(165, 28);
             this.textBox3.TabIndex = 0;
             // 
             // dataGridView1
@@ -303,7 +303,7 @@
             this.Importe,
             this.Edit,
             this.Delete});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 127);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 127);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(798, 110);
             this.dataGridView1.TabIndex = 43;

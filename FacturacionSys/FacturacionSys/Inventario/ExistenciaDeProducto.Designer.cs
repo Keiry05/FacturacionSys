@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExistenciaDeProducto));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dbExistencia = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbExistencia)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dbExistencia);
             this.groupBox2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(19, 135);
             this.groupBox2.Name = "groupBox2";
@@ -47,14 +47,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reporte";
             // 
-            // dataGridView1
+            // dbExistencia
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(576, 193);
-            this.dataGridView1.TabIndex = 0;
+            this.dbExistencia.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dbExistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dbExistencia.Location = new System.Drawing.Point(20, 22);
+            this.dbExistencia.Name = "dbExistencia";
+            this.dbExistencia.Size = new System.Drawing.Size(576, 193);
+            this.dbExistencia.TabIndex = 0;
             // 
             // button1
             // 
@@ -82,8 +82,9 @@
             this.Controls.Add(this.button1);
             this.Name = "ExistenciaDeProducto";
             this.Text = "ExistenciaDeProducto";
+            this.Load += new System.EventHandler(this.ExistenciaDeProducto_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbExistencia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -91,7 +92,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dbExistencia;
         private System.Windows.Forms.Button button1;
     }
 }

@@ -80,6 +80,7 @@
           <Property Name="Comentarios" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Estatus" Type="int" Nullable="false" />
           <Property Name="MontoTotal" Type="numeric" Precision="21" Scale="2" Nullable="false" />
+          <Property Name="Cod_Suplidor" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_InventarioMovimiento_D">
           <Key>
@@ -250,6 +251,17 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ActualizarExistencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cod_Producto" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="numeric" Mode="In" />
+          <Parameter Name="Costo" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="ConsultarEntradasInventario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarExistencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsumirExistencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cod_Producto" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="numeric" Mode="In" />
+        </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -260,6 +272,9 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
         <Function Name="SP_BUSCARCLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
           <Parameter Name="NumIdentif" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCARPEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigo" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SP_BUSCARPRODUCTOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
@@ -434,6 +449,7 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <Property Name="Estatus" Type="Int32" Nullable="false" />
           <Property Name="MontoTotal" Type="Decimal" Precision="21" Scale="2" Nullable="false" />
           <NavigationProperty Name="TBL_InventarioMovimiento_D" Relationship="Self.FK_MovimientoD_CodMovimiento" FromRole="TBL_InventarioMovimiento" ToRole="TBL_InventarioMovimiento_D" />
+          <Property Name="Cod_Suplidor" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_InventarioMovimiento_D">
           <Key>
@@ -748,6 +764,20 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="NumIdentif" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="ActualizarExistencia">
+            <Parameter Name="Cod_Producto" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+            <Parameter Name="Costo" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCARPEDIDO" ReturnType="Collection(FacturacionSysDBModel.SP_BUSCARPEDIDO_Result)">
+          <Parameter Name="codigo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ConsumirExistencia">
+            <Parameter Name="Cod_Producto" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarEntradasInventario" ReturnType="Collection(FacturacionSysDBModel.ConsultarEntradasInventario_Result)" />
+          <FunctionImport Name="ConsultarExistencia" ReturnType="Collection(FacturacionSysDBModel.ConsultarExistencia_Result)" />
         </EntityContainer>
         <ComplexType Name="SP_BUSCARPRODUCTOS_Result">
           <Property Type="String" Name="Referencia" Nullable="false" MaxLength="50" />
@@ -795,6 +825,25 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Telefono1" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SP_BUSCARPEDIDO_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="FechaCompromiso" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Comentarios" Nullable="false" MaxLength="200" />
+          <Property Type="Decimal" Name="MontoTotal" Nullable="false" Precision="21" Scale="2" />
+          <Property Type="String" Name="Cliente" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="ConsultarEntradasInventario_Result">
+          <Property Type="Int32" Name="MovimientoID" Nullable="false" />
+          <Property Type="String" Name="Suplidor" Nullable="false" MaxLength="200" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Comentarios" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="ConsultarExistencia_Result">
+          <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="21" Scale="2" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="150" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -876,6 +925,7 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
           <EntitySetMapping Name="TBL_InventarioMovimiento">
             <EntityTypeMapping TypeName="FacturacionSysDBModel.TBL_InventarioMovimiento">
               <MappingFragment StoreEntitySet="TBL_InventarioMovimiento">
+                <ScalarProperty Name="Cod_Suplidor" ColumnName="Cod_Suplidor" />
                 <ScalarProperty Name="CodMovimiento" ColumnName="CodMovimiento" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
@@ -1029,6 +1079,39 @@ warning 6002: The table/view 'FacturacionSysDB.dbo.Usuarios' does not have a pri
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ActualizarExistencia" FunctionName="FacturacionSysDBModel.Store.ActualizarExistencia" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCARPEDIDO" FunctionName="FacturacionSysDBModel.Store.SP_BUSCARPEDIDO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FacturacionSysDBModel.SP_BUSCARPEDIDO_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="FechaCompromiso" ColumnName="FechaCompromiso" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsumirExistencia" FunctionName="FacturacionSysDBModel.Store.ConsumirExistencia" />
+          <FunctionImportMapping FunctionImportName="ConsultarEntradasInventario" FunctionName="FacturacionSysDBModel.Store.ConsultarEntradasInventario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FacturacionSysDBModel.ConsultarEntradasInventario_Result">
+                <ScalarProperty Name="MovimientoID" ColumnName="MovimientoID" />
+                <ScalarProperty Name="Suplidor" ColumnName="Suplidor" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarExistencia" FunctionName="FacturacionSysDBModel.Store.ConsultarExistencia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FacturacionSysDBModel.ConsultarExistencia_Result">
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

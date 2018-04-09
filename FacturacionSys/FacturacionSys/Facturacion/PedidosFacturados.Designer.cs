@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PedidosFacturados));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgPedidoFact = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPedidoFact)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgPedidoFact);
             this.groupBox2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(21, 115);
             this.groupBox2.Name = "groupBox2";
@@ -47,14 +47,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lista de pedidos facturados";
             // 
-            // dataGridView1
+            // dgPedidoFact
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(575, 155);
-            this.dataGridView1.TabIndex = 0;
+            this.dgPedidoFact.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgPedidoFact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPedidoFact.Location = new System.Drawing.Point(19, 22);
+            this.dgPedidoFact.Name = "dgPedidoFact";
+            this.dgPedidoFact.Size = new System.Drawing.Size(575, 155);
+            this.dgPedidoFact.TabIndex = 0;
             // 
             // button1
             // 
@@ -84,7 +84,7 @@
             this.Text = "PedidosFacturados";
             this.Load += new System.EventHandler(this.PedidosFacturados_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPedidoFact)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -92,7 +92,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgPedidoFact;
         private System.Windows.Forms.Button button1;
     }
 }

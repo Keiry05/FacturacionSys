@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
+namespace FacturacionSysDLL.BUSINESS_LAWYER.Inventario
 {
-    public class Pedido
+   public class EntradaInventario
     {
 
-        public void Guardar(TBL_Pedido model,List<TBL_Pedido_D> detalle)
+        public void Guardar(TBL_InventarioMovimiento model, List<TBL_InventarioMovimiento_D> detalle)
         {
             try
             {
@@ -20,26 +20,24 @@ namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
                 using (FacturacionSysDBEntities dbContext = new FacturacionSysDBEntities())
                 {
 
-                    if (model.CodPedido == 0)
+                    if (model.CodMovimiento == 0)
                     {
 
-                        dbContext.TBL_Pedido.Add(model);
+                        dbContext.TBL_InventarioMovimiento.Add(model);
                         dbContext.SaveChanges();
-                        var a=model.CodPedido;
-                        
-                        
+                        var a = model.CodMovimiento;
                         foreach (var det in detalle)
                         {
 
-                            det.CodPedido = model.CodPedido;
-                            dbContext.TBL_Pedido_D.Add(det);
+                            det.CodMovimiento = model.CodMovimiento;
+                            dbContext.TBL_InventarioMovimiento_D.Add(det);
                             dbContext.SaveChanges();
                         }
 
                         foreach (var det in detalle)
                         {
-
-                            dbContext.ConsumirExistencia(det.CodProducto, det.Cantidad);
+                            
+                            dbContext.ActualizarExistencia(det.CodProducto, det.Cantidad,det.Costo);
                             dbContext.SaveChanges();
                         }
                     }
@@ -61,6 +59,24 @@ namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
                             validationError.ErrorMessage);
                     }
                 }
+            }
+        }
+        public List<ConsultarEntradasInventario_Result> BuscarListadoEntradas()
+
+        {
+            try
+            {
+
+                using (FacturacionSysDBEntities dbContext = new FacturacionSysDBEntities())
+                {
+                    var result = dbContext.ConsultarEntradasInventario().ToList();
+                    return result;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacturacionSysDLL.BUSINESS_LAWYER.Facturacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace FacturacionSys.Inventario
         public ExistenciaDeProducto()
         {
             InitializeComponent();
+        }
+
+        private void ExistenciaDeProducto_Load(object sender, EventArgs e)
+        {
+            ProductoC existencia = new ProductoC();
+            dbExistencia.DataSource = existencia.BuscarExistencia();
+
         }
     }
 }

@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pedidos_pendientes));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dGPedidosPendiente = new System.Windows.Forms.DataGridView();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGPedidosPendiente)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -54,7 +54,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dGPedidosPendiente);
             this.groupBox2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(23, 114);
             this.groupBox2.Name = "groupBox2";
@@ -63,14 +63,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lista de pedidos pendientes";
             // 
-            // dataGridView1
+            // dGPedidosPendiente
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(576, 193);
-            this.dataGridView1.TabIndex = 0;
+            this.dGPedidosPendiente.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dGPedidosPendiente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGPedidosPendiente.Location = new System.Drawing.Point(20, 22);
+            this.dGPedidosPendiente.Name = "dGPedidosPendiente";
+            this.dGPedidosPendiente.Size = new System.Drawing.Size(576, 193);
+            this.dGPedidosPendiente.TabIndex = 0;
             // 
             // Pedidos_pendientes
             // 
@@ -84,7 +84,7 @@
             this.Text = "Pedidos_pendientes";
             this.Load += new System.EventHandler(this.Pedidos_pendientes_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGPedidosPendiente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -93,6 +93,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dGPedidosPendiente;
     }
 }

@@ -30,7 +30,7 @@ namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
                 throw new Exception(ex.Message);
             }
         }
-            public FacturacionSysDLL.DATA.TBL_Producto BuscarPorID(int ID)
+        public FacturacionSysDLL.DATA.TBL_Producto BuscarPorID(int ID)
 
         {
             try
@@ -146,7 +146,24 @@ namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
             }
 
         }
-         
+        public List<ConsultarExistencia_Result> BuscarExistencia()
+
+        {
+            try
+            {
+
+                using (FacturacionSysDBEntities dbContext = new FacturacionSysDBEntities())
+                {
+                    var result = dbContext.ConsultarExistencia().ToList();
+                    return result;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
   

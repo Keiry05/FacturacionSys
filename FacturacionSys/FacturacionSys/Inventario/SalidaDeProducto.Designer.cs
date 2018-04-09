@@ -82,6 +82,7 @@
             this.Controls.Add(this.button1);
             this.Name = "SalidaDeProducto";
             this.Text = "SalidaDeProducto";
+            this.Load += new System.EventHandler(this.SalidaDeProducto_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

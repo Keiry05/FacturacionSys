@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntradaDeProducto));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgEntrada = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEntrada)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgEntrada);
             this.groupBox2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(10, 141);
             this.groupBox2.Name = "groupBox2";
@@ -47,14 +47,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reporte";
             // 
-            // dataGridView1
+            // dgEntrada
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(576, 193);
-            this.dataGridView1.TabIndex = 0;
+            this.dgEntrada.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgEntrada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgEntrada.Location = new System.Drawing.Point(20, 22);
+            this.dgEntrada.Name = "dgEntrada";
+            this.dgEntrada.Size = new System.Drawing.Size(576, 193);
+            this.dgEntrada.TabIndex = 0;
             // 
             // button1
             // 
@@ -84,7 +84,7 @@
             this.Text = "EntradaDeProducto";
             this.Load += new System.EventHandler(this.EntradaDeProducto_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEntrada)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -92,7 +92,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgEntrada;
         private System.Windows.Forms.Button button1;
     }
 }

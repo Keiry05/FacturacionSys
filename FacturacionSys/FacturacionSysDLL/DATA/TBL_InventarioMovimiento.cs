@@ -25,6 +25,7 @@ namespace FacturacionSysDLL.DATA
         public string Comentarios { get; set; }
         public int Estatus { get; set; }
         public decimal MontoTotal { get; set; }
+        public int Cod_Suplidor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_InventarioMovimiento_D> TBL_InventarioMovimiento_D { get; set; }
