@@ -53,6 +53,7 @@
     <Compile Include="BUSINESS LAWYER\Facturacion\Pedido.cs" />
     <Compile Include="BUSINESS LAWYER\Facturacion\ProductoC.cs" />
     <Compile Include="BUSINESS LAWYER\Menu\LoginC.cs" />
+    <Compile Include="BUSINESS LAWYER\SuplidorC.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DATA\DataModel.Context.cs">
       <AutoGen>True</AutoGen>

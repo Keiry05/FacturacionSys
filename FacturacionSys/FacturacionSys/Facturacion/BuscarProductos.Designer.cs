@@ -33,9 +33,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtDescripcionB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtReferenciaB = new System.Windows.Forms.TextBox();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.btnCrearCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductos)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -60,9 +61,9 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtReferenciaB);
             this.groupBox2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 112);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(687, 377);
+            this.groupBox2.Size = new System.Drawing.Size(687, 277);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parámetros de búsqueda";
@@ -71,7 +72,7 @@
             // 
             this.txtDescripcionB.Location = new System.Drawing.Point(242, 41);
             this.txtDescripcionB.Name = "txtDescripcionB";
-            this.txtDescripcionB.Size = new System.Drawing.Size(254, 28);
+            this.txtDescripcionB.Size = new System.Drawing.Size(254, 26);
             this.txtDescripcionB.TabIndex = 5;
             // 
             // label4
@@ -79,25 +80,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(248, 70);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 22);
+            this.label4.Size = new System.Drawing.Size(80, 19);
             this.label4.TabIndex = 4;
             this.label4.Text = "Descripcion";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 22);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Código";
-            // 
-            // txtReferenciaB
-            // 
-            this.txtReferenciaB.Location = new System.Drawing.Point(19, 41);
-            this.txtReferenciaB.Name = "txtReferenciaB";
-            this.txtReferenciaB.Size = new System.Drawing.Size(165, 28);
-            this.txtReferenciaB.TabIndex = 0;
             // 
             // btnBuscarCliente
             // 
@@ -115,12 +100,46 @@
             this.btnBuscarCliente.UseVisualStyleBackColor = false;
             this.btnBuscarCliente.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 19);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Código";
+            // 
+            // txtReferenciaB
+            // 
+            this.txtReferenciaB.Location = new System.Drawing.Point(19, 41);
+            this.txtReferenciaB.Name = "txtReferenciaB";
+            this.txtReferenciaB.Size = new System.Drawing.Size(165, 26);
+            this.txtReferenciaB.TabIndex = 0;
+            // 
+            // btnCrearCliente
+            // 
+            this.btnCrearCliente.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnCrearCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCrearCliente.BackgroundImage")));
+            this.btnCrearCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCrearCliente.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearCliente.ForeColor = System.Drawing.Color.White;
+            this.btnCrearCliente.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCrearCliente.Location = new System.Drawing.Point(31, 12);
+            this.btnCrearCliente.Name = "btnCrearCliente";
+            this.btnCrearCliente.Size = new System.Drawing.Size(203, 77);
+            this.btnCrearCliente.TabIndex = 14;
+            this.btnCrearCliente.Text = "Nuevo Producto";
+            this.btnCrearCliente.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnCrearCliente.UseVisualStyleBackColor = false;
+            this.btnCrearCliente.Click += new System.EventHandler(this.btnCrearCliente_Click_1);
+            // 
             // BuscarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(713, 409);
+            this.Controls.Add(this.btnCrearCliente);
             this.Controls.Add(this.groupBox2);
             this.Name = "BuscarProductos";
             this.Text = "BuscarProductos";
@@ -140,5 +159,6 @@
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtReferenciaB;
+        private System.Windows.Forms.Button btnCrearCliente;
     }
 }

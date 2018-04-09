@@ -59,7 +59,15 @@ namespace FacturacionSys.Facturacion
        
         }
 
+        private void btnCrearCliente_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void btnCrearCliente_Click_1(object sender, EventArgs e)
+        {
+            var nuevoP = new Nuevo_Producto();
+            nuevoP.ShowDialog();
+        }
     }
     }
