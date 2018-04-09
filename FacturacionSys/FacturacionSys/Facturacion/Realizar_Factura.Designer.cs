@@ -38,9 +38,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.listBox5 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,7 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridproducto = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,33 +58,36 @@
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numdescuento = new System.Windows.Forms.NumericUpDown();
             this.nudDescuento = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numprecio = new System.Windows.Forms.NumericUpDown();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtItbis = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtdescripcion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtImporte = new System.Windows.Forms.TextBox();
             this.nudPrecio = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCodigoD = new System.Windows.Forms.TextBox();
+            this.cboClientes = new System.Windows.Forms.ComboBox();
+            this.txtItbis = new System.Windows.Forms.NumericUpDown();
+            this.txtImporte = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridproducto)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numdescuento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numprecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItbis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImporte)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboClientes);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.label1);
@@ -94,9 +96,8 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.listBox5);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpFecha);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.button1);
@@ -169,6 +170,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(207, 26);
             this.textBox2.TabIndex = 62;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label23
             // 
@@ -180,19 +182,6 @@
             this.label23.TabIndex = 61;
             this.label23.Text = "Teléfono";
             // 
-            // listBox5
-            // 
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.ItemHeight = 19;
-            this.listBox5.Items.AddRange(new object[] {
-            "",
-            "Crédito",
-            "Contado"});
-            this.listBox5.Location = new System.Drawing.Point(150, 70);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(206, 23);
-            this.listBox5.TabIndex = 49;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -203,12 +192,12 @@
             this.label3.TabIndex = 48;
             this.label3.Text = "Cliente";
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(435, 28);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(254, 26);
-            this.dateTimePicker1.TabIndex = 43;
+            this.dtpFecha.Location = new System.Drawing.Point(435, 28);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(254, 26);
+            this.dtpFecha.TabIndex = 43;
             // 
             // label12
             // 
@@ -267,7 +256,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dataGridproducto);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(9, 163);
@@ -293,11 +282,11 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dataGridproducto
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridproducto.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridproducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridproducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
             this.Descripcion,
             this.Cantidad,
@@ -307,10 +296,10 @@
             this.Importe,
             this.Edit,
             this.Delete});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 189);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(694, 150);
-            this.dataGridView1.TabIndex = 42;
+            this.dataGridproducto.Location = new System.Drawing.Point(11, 189);
+            this.dataGridproducto.Name = "dataGridproducto";
+            this.dataGridproducto.Size = new System.Drawing.Size(694, 150);
+            this.dataGridproducto.TabIndex = 42;
             // 
             // Codigo
             // 
@@ -359,18 +348,17 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.numericUpDown3);
+            this.groupBox3.Controls.Add(this.txtImporte);
+            this.groupBox3.Controls.Add(this.txtItbis);
+            this.groupBox3.Controls.Add(this.numdescuento);
             this.groupBox3.Controls.Add(this.nudDescuento);
-            this.groupBox3.Controls.Add(this.numericUpDown2);
+            this.groupBox3.Controls.Add(this.numprecio);
             this.groupBox3.Controls.Add(this.nudCantidad);
             this.groupBox3.Controls.Add(this.btnAgregar);
             this.groupBox3.Controls.Add(this.btnBuscar);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.txtItbis);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.txtdescripcion);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtImporte);
             this.groupBox3.Controls.Add(this.nudPrecio);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label8);
@@ -382,21 +370,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Editar productos";
             // 
-            // button3
+            // numdescuento
             // 
-            this.button3.Location = new System.Drawing.Point(569, 99);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 34);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(249, 71);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(100, 26);
-            this.numericUpDown3.TabIndex = 16;
+            this.numdescuento.Location = new System.Drawing.Point(249, 71);
+            this.numdescuento.Name = "numdescuento";
+            this.numdescuento.Size = new System.Drawing.Size(100, 26);
+            this.numdescuento.TabIndex = 16;
+            this.numdescuento.ValueChanged += new System.EventHandler(this.numdescuento_ValueChanged);
             // 
             // nudDescuento
             // 
@@ -407,12 +387,13 @@
             this.nudDescuento.TabIndex = 15;
             this.nudDescuento.Text = "Desc";
             // 
-            // numericUpDown2
+            // numprecio
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(84, 107);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(100, 26);
-            this.numericUpDown2.TabIndex = 14;
+            this.numprecio.Location = new System.Drawing.Point(84, 107);
+            this.numprecio.Name = "numprecio";
+            this.numprecio.Size = new System.Drawing.Size(100, 26);
+            this.numprecio.TabIndex = 14;
+            this.numprecio.ValueChanged += new System.EventHandler(this.numprecio_ValueChanged);
             // 
             // nudCantidad
             // 
@@ -420,24 +401,27 @@
             this.nudCantidad.Name = "nudCantidad";
             this.nudCantidad.Size = new System.Drawing.Size(100, 26);
             this.nudCantidad.TabIndex = 13;
+            this.nudCantidad.ValueChanged += new System.EventHandler(this.nudCantidad_ValueChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(569, 58);
+            this.btnAgregar.Location = new System.Drawing.Point(579, 92);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 34);
             this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(569, 22);
+            this.btnBuscar.Location = new System.Drawing.Point(579, 56);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 30);
             this.btnBuscar.TabIndex = 11;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label7
             // 
@@ -449,20 +433,13 @@
             this.label7.Text = "ITBIS";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // txtItbis
+            // txtdescripcion
             // 
-            this.txtItbis.Location = new System.Drawing.Point(430, 72);
-            this.txtItbis.Name = "txtItbis";
-            this.txtItbis.Size = new System.Drawing.Size(100, 26);
-            this.txtItbis.TabIndex = 9;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(195, 37);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(335, 26);
-            this.textBox3.TabIndex = 8;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtdescripcion.Location = new System.Drawing.Point(195, 37);
+            this.txtdescripcion.Name = "txtdescripcion";
+            this.txtdescripcion.Size = new System.Drawing.Size(335, 26);
+            this.txtdescripcion.TabIndex = 8;
+            this.txtdescripcion.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label6
             // 
@@ -472,13 +449,6 @@
             this.label6.Size = new System.Drawing.Size(59, 19);
             this.label6.TabIndex = 7;
             this.label6.Text = "Importe";
-            // 
-            // txtImporte
-            // 
-            this.txtImporte.Location = new System.Drawing.Point(430, 106);
-            this.txtImporte.Name = "txtImporte";
-            this.txtImporte.Size = new System.Drawing.Size(100, 26);
-            this.txtImporte.TabIndex = 6;
             // 
             // nudPrecio
             // 
@@ -514,6 +484,38 @@
             this.txtCodigoD.Size = new System.Drawing.Size(100, 26);
             this.txtCodigoD.TabIndex = 0;
             // 
+            // cboClientes
+            // 
+            this.cboClientes.FormattingEnabled = true;
+            this.cboClientes.Location = new System.Drawing.Point(149, 66);
+            this.cboClientes.Name = "cboClientes";
+            this.cboClientes.Size = new System.Drawing.Size(206, 27);
+            this.cboClientes.TabIndex = 67;
+            // 
+            // txtItbis
+            // 
+            this.txtItbis.Location = new System.Drawing.Point(430, 70);
+            this.txtItbis.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.txtItbis.Name = "txtItbis";
+            this.txtItbis.Size = new System.Drawing.Size(99, 26);
+            this.txtItbis.TabIndex = 19;
+            // 
+            // txtImporte
+            // 
+            this.txtImporte.Location = new System.Drawing.Point(431, 105);
+            this.txtImporte.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.txtImporte.Name = "txtImporte";
+            this.txtImporte.Size = new System.Drawing.Size(99, 26);
+            this.txtImporte.TabIndex = 20;
+            // 
             // Realizar_Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,12 +529,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridproducto)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numdescuento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numprecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItbis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImporte)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -545,8 +549,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ListBox listBox5;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
@@ -558,23 +561,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numdescuento;
         private System.Windows.Forms.Label nudDescuento;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numprecio;
         private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtItbis;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtdescripcion;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtImporte;
         private System.Windows.Forms.Label nudPrecio;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtCodigoD;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridproducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
@@ -585,5 +585,8 @@
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox cboClientes;
+        private System.Windows.Forms.NumericUpDown txtItbis;
+        private System.Windows.Forms.NumericUpDown txtImporte;
     }
 }

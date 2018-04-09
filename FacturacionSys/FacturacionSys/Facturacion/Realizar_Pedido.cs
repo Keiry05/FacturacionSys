@@ -172,5 +172,10 @@ namespace FacturacionSys.Facturacion
                 MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cboCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
