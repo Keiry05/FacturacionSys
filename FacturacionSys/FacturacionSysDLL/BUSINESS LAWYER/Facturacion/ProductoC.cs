@@ -29,5 +29,49 @@ namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
             }
            
         }
+        public bool ValidarExistencia(string referencia = "",decimal Cantidad=0)
+
+        {
+            try
+            {
+
+                using (FacturacionSysDBEntities dbContext = new FacturacionSysDBEntities())
+                {
+                    var result = dbContext.SP_BUSCARPRODUCTOS("", referencia).FirstOrDefault();
+                    var retorno=true;
+                    if (result.Cantidad < Cantidad)
+                    {
+                        retorno = false;
+                        
+                    }
+                    return retorno;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+        public int BuscarCodigo(string referencia)
+        {
+            try
+            {
+
+                using (FacturacionSysDBEntities dbContext = new FacturacionSysDBEntities())
+                {
+                    var codigo = from prod in dbContext.TBL_Producto
+                                 where prod.Referencia == referencia
+                                 select prod.CodProducto;
+                    return codigo.FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+         
     }
 }

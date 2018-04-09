@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUSINESS LAWYER\Facturacion\ClienteC.cs" />
+    <Compile Include="BUSINESS LAWYER\Facturacion\Pedido.cs" />
     <Compile Include="BUSINESS LAWYER\Facturacion\ProductoC.cs" />
     <Compile Include="BUSINESS LAWYER\Menu\LoginC.cs" />
     <Compile Include="Class1.cs" />
