@@ -1,6 +1,6 @@
 ﻿namespace FacturacionSys.Facturacion
 {
-    partial class PedidosQsePuedenFacturar
+    partial class Facturar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PedidosQsePuedenFacturar));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturar));
+            this.dgFacturas = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFacturas)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgFacturas
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 118);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(559, 193);
-            this.dataGridView1.TabIndex = 1;
+            this.dgFacturas.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgFacturas.Location = new System.Drawing.Point(27, 118);
+            this.dgFacturas.Name = "dgFacturas";
+            this.dgFacturas.Size = new System.Drawing.Size(559, 193);
+            this.dgFacturas.TabIndex = 1;
+            this.dgFacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFacturas_CellContentClick);
             // 
             // button1
             // 
@@ -58,25 +59,27 @@
             this.button1.Text = "Nuevo";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // PedidosQsePuedenFacturar
+            // Facturar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(615, 333);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "PedidosQsePuedenFacturar";
-            this.Text = "PedidosQsePuedenFacturar";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Controls.Add(this.dgFacturas);
+            this.Name = "Facturar";
+            this.Text = "Facturar";
+            this.Load += new System.EventHandler(this.Facturar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgFacturas)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgFacturas;
         private System.Windows.Forms.Button button1;
     }
 }

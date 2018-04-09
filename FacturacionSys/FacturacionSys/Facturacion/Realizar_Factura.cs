@@ -15,6 +15,8 @@ namespace FacturacionSys.Facturacion
     public partial class Realizar_Factura : Form
     {
         ProductoC producto = new ProductoC();
+
+        int cod_pedido;
         public Realizar_Factura()
         {
             InitializeComponent();
@@ -133,15 +135,15 @@ namespace FacturacionSys.Facturacion
         {
             try
             {
-                FacturacionSysDLL.DATA.TBL_Pedido pedidos = new FacturacionSysDLL.DATA.TBL_Pedido();
-                var pedidoModel = new Pedido();
+                FacturacionSysDLL.DATA.TBL_Factura pedidos = new FacturacionSysDLL.DATA.TBL_Factura();
+                Factura pedidoModel = new Factura();
 
                 pedidos.CodCliente = Convert.ToInt16(cboClientes.SelectedValue);
                 pedidos.Fecha = dtpFecha.Value;
                 pedidos.MontoDescuento = 0;
 
-                List<TBL_Pedido_D> lstDetalle = new List<TBL_Pedido_D>();
-                TBL_Pedido_D detalle = new TBL_Pedido_D();
+                List<TBL_Factura_D> lstDetalle = new List<TBL_Factura_D>();
+                TBL_Factura_D detalle = new TBL_Factura_D();
                 decimal monto_total = 0;
                 if (dataGridproducto.Rows.Count > 0)
                 {
@@ -167,8 +169,24 @@ namespace FacturacionSys.Facturacion
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+
+        public void Editar(int id)
         {
+            Pedido cliente = new Pedido();
+            var result = cliente.BuscarPorID(id);
+            var detale = cliente.BuscarDetalle(id);
+            foreach (var det in detale)
+            {
+                dataGridproducto.AutoGenerateColumns = true;
+                dataGridproducto.Rows.Add(det.CODPRODUCTO, det.Codigo, det.Producto, det.CANTIDAD, det.PRECIO, txtItbis.Value, det.DESCUENTO,det.IMPORTE);
+            }
+      
+            LlenarCboClientes();
+            cboClientes.SelectedValue = result.CodCliente;
+            dtpFecha.Value = result.Fecha;
+            txtOrden.Text = result.Codigo.ToString();
+            this.cod_pedido = result.Codigo;
+            this.ShowDialog();
 
         }
 

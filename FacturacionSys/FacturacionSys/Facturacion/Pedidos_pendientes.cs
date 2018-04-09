@@ -20,9 +20,8 @@ namespace FacturacionSys.Facturacion
 
         private void Pedidos_pendientes_Load(object sender, EventArgs e)
         {
-            //Pedido pedido = new Pedido();
-            //dGPedidosPendiente.DataSource = pedido.BuscarListadoClientes();
-
+            Pedido entradas = new Pedido();
+            dGPedidosPendiente.DataSource = entradas.BuscarListadoPedidosPendiente();
         }
     }
 }

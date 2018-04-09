@@ -63,5 +63,66 @@ namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
                 }
             }
         }
+        public List<SP_BUSCARPEDIDO_Result> BuscarListadoPedidosPendiente()
+
+        {
+            try
+            {
+
+                using (FacturacionSysDBEntities dbContext = new FacturacionSysDBEntities())
+                {
+                    var result = dbContext.SP_BUSCARPEDIDO().ToList();
+                    return result;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public FacturacionSysDLL.DATA.SP_BUSCARPEDIDO_BYIDN_Result BuscarPorID(int ID)
+
+        {
+            try
+            {
+
+                using (FacturacionSysDBEntities dbContext = new FacturacionSysDBEntities())
+                {
+                    var result = dbContext.SP_BUSCARPEDIDO_BYIDN(ID);
+
+                    return result.FirstOrDefault();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public List<SP_BUSCARPEDIDO_DETALLE_Result> BuscarDetalle(int ID)
+
+        {
+            try
+            {
+
+                using (FacturacionSysDBEntities dbContext = new FacturacionSysDBEntities())
+                {
+                    var result = dbContext.SP_BUSCARPEDIDO_DETALLE(ID);
+
+                    return result.ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
     }
 }

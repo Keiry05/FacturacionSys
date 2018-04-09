@@ -200,13 +200,9 @@ namespace FacturacionSysDLL.DATA
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarExistencia", cod_ProductoParameter, cantidadParameter, costoParameter);
         }
     
-        public virtual ObjectResult<SP_BUSCARPEDIDO_Result> SP_BUSCARPEDIDO(string codigo)
+        public virtual ObjectResult<SP_BUSCARPEDIDO_Result> SP_BUSCARPEDIDO()
         {
-            var codigoParameter = codigo != null ?
-                new ObjectParameter("codigo", codigo) :
-                new ObjectParameter("codigo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARPEDIDO_Result>("SP_BUSCARPEDIDO", codigoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARPEDIDO_Result>("SP_BUSCARPEDIDO");
         }
     
         public virtual int ConsumirExistencia(Nullable<int> cod_Producto, Nullable<decimal> cantidad)
@@ -230,6 +226,33 @@ namespace FacturacionSysDLL.DATA
         public virtual ObjectResult<ConsultarExistencia_Result> ConsultarExistencia()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarExistencia_Result>("ConsultarExistencia");
+        }
+    
+        public virtual ObjectResult<SP_BUSCARPEDIDO_BYID_Result> SP_BUSCARPEDIDO_BYID(Nullable<int> cODIGO)
+        {
+            var cODIGOParameter = cODIGO.HasValue ?
+                new ObjectParameter("CODIGO", cODIGO) :
+                new ObjectParameter("CODIGO", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARPEDIDO_BYID_Result>("SP_BUSCARPEDIDO_BYID", cODIGOParameter);
+        }
+    
+        public virtual ObjectResult<SP_BUSCARPEDIDO_DETALLE_Result> SP_BUSCARPEDIDO_DETALLE(Nullable<int> cODIGO)
+        {
+            var cODIGOParameter = cODIGO.HasValue ?
+                new ObjectParameter("CODIGO", cODIGO) :
+                new ObjectParameter("CODIGO", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARPEDIDO_DETALLE_Result>("SP_BUSCARPEDIDO_DETALLE", cODIGOParameter);
+        }
+    
+        public virtual ObjectResult<SP_BUSCARPEDIDO_BYIDN_Result> SP_BUSCARPEDIDO_BYIDN(Nullable<int> cODIGO)
+        {
+            var cODIGOParameter = cODIGO.HasValue ?
+                new ObjectParameter("CODIGO", cODIGO) :
+                new ObjectParameter("CODIGO", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_BUSCARPEDIDO_BYIDN_Result>("SP_BUSCARPEDIDO_BYIDN", cODIGOParameter);
         }
     }
 }

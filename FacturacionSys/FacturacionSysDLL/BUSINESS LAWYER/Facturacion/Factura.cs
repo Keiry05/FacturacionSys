@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
 {
-    class Facturacion
+   public class Factura
     {
-
-    }   public void Guardar(TBL_Factura model,List<TBL_Factura_D> detalle)
+        public void Guardar(TBL_Factura model, List<TBL_Factura_D> detalle)
         {
             try
             {
@@ -25,14 +24,14 @@ namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
 
                         dbContext.TBL_Factura.Add(model);
                         dbContext.SaveChanges();
-                        var a=model.CodFactura;
-                        
-                        
+                        var a = model.CodFactura;
+
+
                         foreach (var det in detalle)
                         {
 
                             det.CodFactura = model.CodFactura;
-                            dbContext.TBL_Factura.Add(det);
+                            dbContext.TBL_Factura_D.Add(det);
                             dbContext.SaveChanges();
                         }
                     }
@@ -56,4 +55,6 @@ namespace FacturacionSysDLL.BUSINESS_LAWYER.Facturacion
                 }
             }
         }
+    }
+        
     }

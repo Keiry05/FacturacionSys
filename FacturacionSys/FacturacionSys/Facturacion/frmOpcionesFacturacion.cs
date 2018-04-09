@@ -30,7 +30,7 @@ namespace FacturacionSys.Facturacion
 
         private void realizarFacturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var factura = new Realizar_Factura();
+            var factura = new Facturar();
             factura.ShowDialog();
         }
 

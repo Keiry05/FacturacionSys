@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUSINESS LAWYER\Facturacion\ClienteC.cs" />
-    <Compile Include="BUSINESS LAWYER\Facturacion\Facturacion.cs" />
+    <Compile Include="BUSINESS LAWYER\Facturacion\Factura.cs" />
     <Compile Include="BUSINESS LAWYER\Facturacion\Pedido.cs" />
     <Compile Include="BUSINESS LAWYER\Facturacion\ProductoC.cs" />
     <Compile Include="BUSINESS LAWYER\Inventario\EntradaInventario.cs" />
@@ -79,6 +79,15 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="DATA\SP_BUSCARCLIENTES_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\SP_BUSCARPEDIDO_BYIDN_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\SP_BUSCARPEDIDO_BYID_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\SP_BUSCARPEDIDO_DETALLE_Result.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\SP_BUSCARPEDIDO_Result.cs">
